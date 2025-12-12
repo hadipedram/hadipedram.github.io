@@ -668,6 +668,46 @@ li{
 @media (max-width: 600px){
   body{ padding: 0 !important; }
 }
+/* سه کادر خدمات سریع در Hero */
+.hero .kpis{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:14px;
+  margin-top:16px;
+}
+
+.hero .kpi{
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 18px;
+  padding: 14px 14px 12px;
+  box-shadow: 0 16px 28px rgba(0,0,0,.18);
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.hero .kpi:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.16);
+  border-color: rgba(147,197,253,.55);
+}
+
+.hero .kpi .n{
+  color:#ffffff;
+  font-weight: 900;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.hero .kpi .t{
+  color: rgba(255,255,255,.85);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+/* موبایل: ۳تا کادر زیر هم یا 2تایی */
+@media (max-width: 860px){
+  .hero .kpis{ grid-template-columns: 1fr; }
+}
 
   </style>
 </head>
