@@ -573,6 +573,77 @@ li{
     font-size: 15px;
   }
 }
+@media (max-width: 860px){
+  header .head{ flex-wrap: wrap; }
+
+  .menu-btn{ display:inline-flex !important; }
+
+  #mainNav{ display:none !important; width:100%; }
+
+  #mainNav.open{
+    display:flex !important;
+    flex-direction:column;
+    gap:8px;
+    margin-top:10px;
+    padding:10px;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+  }
+
+  #mainNav.open a{
+    width:100%;
+    padding:12px 14px;
+    border-radius:12px;
+    border:1px solid #e5e7eb;
+  }
+}
+/* ===== Mobile Menu (FINAL) ===== */
+@media (max-width: 860px){
+  header .head{ flex-wrap: wrap; }
+
+  /* دکمه منو دیده شود */
+  .menu-btn{
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* منو در حالت عادی پنهان */
+  #mainNav{
+    display: none !important;
+    width: 100%;
+  }
+
+  /* وقتی باز شد */
+  #mainNav.open{
+    display: flex !important;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(2,6,23,.08);
+  }
+
+  #mainNav.open a{
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background: #f8fafc;
+    font-size: 15px;
+  }
+
+  #mainNav.open a:hover{
+    background: #eff6ff;
+  }
+
+  /* جلوگیری از اسکرول افقی */
+  body{ overflow-x: hidden; }
+}
 
   </style>
 </head>
@@ -587,56 +658,38 @@ li{
     💬
   </a>
 </div>
-<script>
-  // همبرگر منو
-  const menuBtn = document.getElementById("menuBtn");
-  const mainNav = document.getElementById("mainNav");
-  if (menuBtn && mainNav){
-    menuBtn.addEventListener("click", () => {
-      mainNav.classList.toggle("open");
-      menuBtn.textContent = mainNav.classList.contains("open") ? "✕ بستن" : "☰ منو";
-    });
 
-    // وقتی روی لینک‌ها کلیک شد، منو بسته شود
-    mainNav.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        if (window.innerWidth <= 820){
-          mainNav.classList.remove("open");
-          menuBtn.textContent = "☰ منو";
-        }
-      });
-    });
-  }
-
-  // سایه هدر در اسکرول
-  const headerEl = document.querySelector("header");
-  window.addEventListener("scroll", () => {
-    if (!headerEl) return;
-    headerEl.classList.toggle("scrolled", window.scrollY > 8);
-  });
-</script>
+</head>
 
 <body>
 
+<header id="header">
+  <div class="container head">
+
+    <div class="brand">
+      <div class="name">هادی پدرام</div>
+      <div class="role">دبیر رسمی آموزش و پرورش | مشاوره و راهنمایی</div>
+    </div>
+
+    <button class="menu-btn" id="menuBtn" aria-label="باز و بسته کردن منو">☰ منو</button>
+
+    <nav id="mainNav">
+      <a href="#services">خدمات</a>
+      <a href="#resume">رزومه</a>
+      <a href="#workshops">کارگاه‌ها</a>
+      <a href="#resources">منابع</a>
+      <a href="#statement">بیانیه حرفه‌ای</a>
+      <a href="guidence.html">راهنمایی تحصیلی</a>
+      <a href="#articles">یادداشت‌های آموزشی</a>
+      <a href="#faq">سوالات پرتکرار</a>
+      <a href="#testimonials">نظرات</a>
+      <a href="#add-review">ثبت نظر</a>
+      <a href="#contact">تماس</a>
+    </nav>
+
+  </div>
 </header>
 
-      <nav>
-        <a href="#services">خدمات</a>
-        <a href="#resume">رزومه</a>
-        <a href="#workshops">کارگاه‌ها</a>
-        <a href="#resources">منابع</a>
-        <a href="#statement">بیانیه حرفه‌ای</a>
-        <a href="guidence.html">راهنمایی تحصیلی</a>
-<a href="#articles">یادداشت‌های آموزشی</a>
-<a href="#faq">سوالات پرتکرار</a>
-<a href="#testimonials">نظرات</a>
-<a href="#add-review">ثبت نظر</a>
-
-
-        <a href="#contact">تماس</a>
-      </nav>
-    </div>
-  </header>
 
   <!-- HERO -->
   <section class="hero">
@@ -1328,108 +1381,36 @@ li{
     <div class="container">© 2025 - هادی پدرام | وب‌سایت رسمی آموزش و مشاوره</div>
   </footer>
 
-  <script>
-    const form = document.getElementById("contactForm");
-    const notice = document.getElementById("notice");
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menuBtn");
+    const mainNav = document.getElementById("mainNav");
 
-    function clean(v){ return String(v || "").trim(); }
+    if (!menuBtn || !mainNav) return;
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+    menuBtn.addEventListener("click", () => {
+      mainNav.classList.toggle("open");
+      menuBtn.textContent = mainNav.classList.contains("open") ? "✕ بستن" : "☰ منو";
+    });
 
-      const fullName = clean(document.getElementById("fullName").value);
-      const phone = clean(document.getElementById("phone").value);
-      const email = clean(document.getElementById("email").value);
-      const requestType = clean(document.getElementById("requestType").value);
-      const audience = clean(document.getElementById("audience").value);
-      const preferred = clean(document.getElementById("preferred").value);
-      const message = clean(document.getElementById("message").value);
-
-      const lines = [
-        "درخواست رسمی مشاوره / همکاری",
-        "--------------------------------",
-        `نام: ${fullName}`,
-        `ایمیل: ${email}`,
-        `شماره تماس: ${phone || "ثبت نشده"}`,
-        `نوع درخواست: ${requestType}`,
-        `مخاطب: ${audience}`,
-        `روش ارتباط ترجیحی: ${preferred}`,
-        "",
-        "شرح درخواست:",
-        message,
-        "",
-        "سپاسگزارم."
-      ];
-
-      const text = lines.join("\n");
-
-      notice.style.display = "block";
-      notice.innerHTML = `
-        <strong>متن آماده ساخته شد:</strong>
-        <div style="margin-top:8px;white-space:pre-wrap;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px;font-size:13px;line-height:1.7">${text}</div>
-        <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
-          <button type="button" class="btn btn-primary" id="copyBtn">کپی متن</button>
-          <button type="button" class="btn" style="border:1px solid #d1d5db;background:#fff" id="resetBtn">پاک کردن فرم</button>
-        </div>
-      `;
-
-      document.getElementById("copyBtn").addEventListener("click", async () => {
-        try{
-          await navigator.clipboard.writeText(text);
-          alert("متن کپی شد ✅");
-        }catch{
-          alert("کپی خودکار انجام نشد. متن را دستی انتخاب و کپی کن.");
+    mainNav.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        if (window.innerWidth <= 860){
+          mainNav.classList.remove("open");
+          menuBtn.textContent = "☰ منو";
         }
       });
-
-      document.getElementById("resetBtn").addEventListener("click", () => {
-        form.reset();
-        notice.style.display = "none";
-        notice.innerHTML = "";
-      });
     });
-  </script>
-  <script>
-  // فرم ساخت متن نظر
-  const reviewForm = document.getElementById("reviewForm");
-  const reviewNotice = document.getElementById("reviewNotice");
 
-  function enc(s){ return encodeURIComponent(String(s || "").trim()); }
-
-  if (reviewForm){
-    reviewForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const role = document.getElementById("rRole").value;
-      const level = document.getElementById("rLevel").value;
-      const rate = document.getElementById("rRate").value;
-      const city = document.getElementById("rCity").value;
-      const text = document.getElementById("rText").value.trim();
-
-      const msg =
-`ثبت نظر (برای انتشار در سایت با حفظ حریم خصوصی)
-نقش: ${role}
-مقطع: ${level}
-شهر: ${city}
-امتیاز: ${rate}
-
-متن نظر:
-${text}`;
-
-      const wa = `https://wa.me/989044983371?text=${enc(msg)}`;
-      const mail = `mailto:hadipedram1376@gmail.com?subject=${enc("ثبت نظر برای سایت")}&body=${enc(msg)}`;
-
-      reviewNotice.style.display = "block";
-      reviewNotice.innerHTML = `
-        <strong>متن نظر آماده شد:</strong>
-        <div style="margin-top:8px;white-space:pre-wrap;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px;font-size:13px;line-height:1.7">${msg}</div>
-        <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn btn-primary" href="${wa}" target="_blank" rel="noopener">ارسال در واتساپ</a>
-          <a class="btn" style="border:1px solid #d1d5db;background:#fff" href="${mail}">ارسال ایمیل</a>
-        </div>
-      `;
+    // کلیک بیرون منو => بسته شود
+    document.addEventListener("click", (e) => {
+      const inside = mainNav.contains(e.target) || menuBtn.contains(e.target);
+      if (!inside && window.innerWidth <= 860){
+        mainNav.classList.remove("open");
+        menuBtn.textContent = "☰ منو";
+      }
     });
-  }
+  });
 </script>
 
 </body>
