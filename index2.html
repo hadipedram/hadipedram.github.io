@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>هادی پدرام | دبیر رسمی آموزش و پرورش | مشاوره و راهنمایی</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="وب‌سایت رسمی هادی پدرام - دبیر رسمی آموزش و پرورش (مشاوره و راهنمایی) | خدمات مشاوره تحصیلی و تربیتی، کارگاه‌ها و ارتباط برای همکاری." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* Testimonials */
+.testimonial-card{
+  position:relative;
+  background:#ffffff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  padding:20px 18px 18px;
+  box-shadow:0 8px 20px rgba(15,23,42,.06);
+}
+
+.testimonial-card::before{
+  content:"“";
+  position:absolute;
+  top:8px;
+  right:14px;
+  font-size:42px;
+  color:#2563eb;
+  opacity:.15;
+  line-height:1;
+}
+
+.testimonial-text{
+  font-size:14px;
+  color:#374151;
+  line-height:1.9;
+  margin-bottom:14px;
+}
+
+.testimonial-author{
+  border-top:1px solid #e5e7eb;
+  padding-top:10px;
+  font-size:13px;
+  color:#111827;
+  font-weight:600;
+}
+
+.testimonial-meta{
+  font-size:12px;
+  color:#6b7280;
+  margin-top:2px;
+}
+
+    /* FAQ */
+.faq-list{
+  display:grid;
+  gap:12px;
+  margin-top:10px;
+}
+
+.faq-item{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  padding:12px 14px;
+  box-shadow:0 6px 16px rgba(15,23,42,.04);
+}
+
+.faq-item summary{
+  cursor:pointer;
+  font-weight:700;
+  color:#111827;
+  list-style:none;
+}
+
+.faq-item summary::-webkit-details-marker{ display:none; }
+
+.faq-answer{
+  margin-top:10px;
+  font-size:14px;
+  color:#374151;
+  line-height:1.9;
+  padding-top:10px;
+  border-top:1px solid #e5e7eb;
+}
+
+    .signature{
+  margin-top:10px;
+  font-size:12px;
+  color:#6b7280;
+  border-top:1px solid #e5e7eb;
+  padding-top:10px;
+}
+.article-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  font-size:12px;
+  color:#6b7280;
+  margin-bottom:8px;
+}
+
+.article-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:8px;
+}
+
+.article-tag{
+  background:#eef2ff;
+  color:#3730a3;
+  font-size:11px;
+  padding:4px 8px;
+  border-radius:999px;
+}
+
+.article-actions{
+  margin-top:10px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.copy-btn{
+  font-size:12px;
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid #d1d5db;
+  background:#fff;
+  cursor:pointer;
+}
+
+.copy-btn:hover{
+  background:#f3f4f6;
+}
+.copy-btn{
+  font-size:13px;
+  padding:8px 16px;
+  border-radius:999px;
+  border:1px solid #2563eb;
+  background:#2563eb;
+  color:#ffffff;
+  cursor:pointer;
+  font-weight:500;
+  transition:all 0.2s ease;
+}
+
+.copy-btn:hover{
+  background:#1e40af;
+  border-color:#1e40af;
+}
+.btn-whatsapp{
+  background:#22c55e;
+  color:#ffffff;
+  border:1px solid #22c55e;
+  font-weight:500;
+}
+
+.btn-whatsapp:hover{
+  background:#16a34a;
+  border-color:#16a34a;
+}
+.btn-resume{
+  background:#ffffff;
+  color:#111827;
+  border:1px solid #d1d5db;
+  font-weight:500;
+}
+
+.btn-resume:hover{
+  background:#f3f4f6;
+}
+/* دکمه واتساپ شناور */
+.whatsapp-float{
+  position: fixed;
+  bottom: 20px;
+  right: 20px; /* برای RTL هم مناسب است */
+  width: 56px;
+  height: 56px;
+  background: #22c55e;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  z-index: 999;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.whatsapp-float:hover{
+  background: #16a34a;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+}
+.whatsapp-wrapper{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.whatsapp-tooltip{
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #111827;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.whatsapp-wrapper:hover .whatsapp-tooltip{
+  opacity: 1;
+}
+
+
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+  font-family: "Vazirmatn", system-ui, -apple-system, "Segoe UI", sans-serif;
+;background:#f3f4f6;color:#111827;line-height:1.85}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1100px,100% - 40px);margin:0 auto}
+
+    header{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid #e5e7eb;z-index:10}
+    header .container{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px}
+    .brand{display:flex;flex-direction:column;gap:2px}
+    .brand .name{font-weight:900;font-size:18px}
+    .brand .title{font-size:12px;color:#6b7280}
+    /* منوی بالا – نسخه واضح و حرفه‌ای */
+nav a{
+  position: relative;
+  font-size: 14px;
+  font-weight: 600;          /* بولد */
+  color: #111827;            /* تیره و خوانا */
+  padding: 6px 2px;
+  transition: color 0.2s ease;
+}
+
+/* خط زیر لینک */
+nav a::after{
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #2563eb;       /* آبی رسمی */
+  transition: width 0.25s ease;
+}
+
+/* حالت hover */
+nav a:hover{
+  color: #2563eb;
+}
+
+nav a:hover::after{
+  width: 100%;
+}
+
+/* لینک فعال (بخش فعلی صفحه) */
+nav a.active{
+  color: #2563eb;
+}
+
+nav a.active::after{
+  width: 100%;
+}
+
+    nav{display:flex;flex-wrap:wrap;gap:14px}
+    nav a{font-size:13px;opacity:.82}
+    nav a:hover{opacity:1}
+
+    .hero{background:radial-gradient(circle at top,#1f2937,#020617);color:#e5e7eb;padding:72px 0 56px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:start}
+    .badge{display:inline-flex;gap:8px;align-items:center;font-size:12px;padding:6px 10px;border:1px solid rgba(229,231,235,.25);border-radius:999px;opacity:.95}
+    .accent{color:#60a5fa}
+    .hero h1{font-size:30px;margin:10px 0 10px}
+    .hero p{font-size:15px;opacity:.92;max-width:680px}
+    .hero-actions{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+    .btn{border-radius:999px;padding:10px 18px;font-size:14px;border:1px solid transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+    .btn-primary{background:#3b82f6;color:#fff}
+    .btn-primary:hover{filter:brightness(1.08)}
+    .btn-outline{background:transparent;border-color:rgba(229,231,235,.35);color:#e5e7eb}
+    .btn-outline:hover{border-color:#fff}
+
+    .hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(229,231,235,.14);border-radius:16px;padding:16px}
+    .hero-card h3{font-size:14px;margin-bottom:8px}
+    .mini-list{display:grid;gap:10px}
+    .mini-item{display:grid;gap:2px}
+    .mini-item .k{font-size:12px;opacity:.8}
+    .mini-item .v{font-size:13px}
+
+    section{padding:58px 0}
+    .section-alt{background:#fff}
+    .section-title{font-size:22px;margin-bottom:10px}
+    .section-intro{font-size:14px;opacity:.82;margin-bottom:18px}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .card{background:#fff;border-radius:14px;padding:18px;border:1px solid #e5e7eb;box-shadow:0 6px 16px rgba(15,23,42,.05)}
+    .card h3{font-size:16px;margin-bottom:8px}
+    .card p{font-size:14px;color:#4b5563}
+    .card small{display:block;margin-top:10px;font-size:12px;color:#6b7280}
+
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .tag{font-size:12px;padding:6px 10px;border-radius:999px;background:#e5e7eb;color:#111827}
+
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .box{background:#fff;border-radius:14px;padding:18px;border:1px solid #e5e7eb}
+
+    .timeline{border-right:2px solid #e5e7eb;padding-right:18px;margin-top:8px}
+    .timeline-item{position:relative;padding-right:16px;margin-bottom:18px}
+    .timeline-item:before{content:"";position:absolute;top:6px;right:-11px;width:9px;height:9px;background:#3b82f6;border-radius:999px}
+    .timeline-item h3{font-size:16px;margin-bottom:4px}
+    .timeline-date{font-size:12px;color:#6b7280;margin-bottom:6px;display:inline-block}
+    .timeline-item p{font-size:14px;color:#374151}
+
+    .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:12px}
+    .kpi{background:#f9fafb;border:1px solid #e5e7eb;border-radius:14px;padding:14px}
+    .kpi .n{font-weight:900;font-size:18px}
+    .kpi .t{font-size:12px;color:#6b7280;margin-top:2px}
+
+    .contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:start}
+    .form{display:grid;gap:10px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    input,select,textarea{padding:10px 12px;border-radius:12px;border:1px solid #d1d5db;font:inherit;background:#fff}
+    textarea{resize:vertical}
+    input:focus,select:focus,textarea:focus{outline:none;border-color:#3b82f6;box-shadow:0 0 0 2px rgba(59,130,246,.14)}
+    .hint{font-size:12px;color:#6b7280}
+    .notice{display:none;margin-top:10px;padding:10px 12px;border-radius:12px;border:1px solid #d1d5db;background:#f9fafb;font-size:13px}
+
+    footer{padding:18px 0;text-align:center;font-size:12px;color:#6b7280;background:#f9fafb;border-top:1px solid #e5e7eb}
+
+    @media (max-width:900px){
+      .hero-grid,.contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      header .container{flex-direction:column;align-items:flex-start}
+      .row{grid-template-columns:1fr}
+      nav{gap:10px}
+    }
+    html{ scroll-behavior:smooth; }
+
+/* سایه هدر هنگام اسکرول */
+header.scrolled{
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+/* دکمه همبرگر */
+.menu-btn{
+  display:none;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  border-radius:12px;
+  padding:8px 10px;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:700;
+  color:#111827;
+}
+
+/* چینش هدر در موبایل */
+@media (max-width: 820px){
+  header .container{
+    flex-wrap:wrap;
+  }
+  .menu-btn{ display:inline-flex; align-items:center; gap:8px; }
+  nav{ width:100%; display:none; padding:10px 0 6px; }
+  nav.open{ display:flex; }
+  nav a{ width:100%; justify-content:flex-start; }
+}
+@media (max-width: 520px){
+  .hero-actions .btn{
+    width:100%;
+    justify-content:center;
+  }
+  .whatsapp-float{
+    width:60px;
+    height:60px;
+    font-size:28px;
+  }
+}
+/* جلوگیری از چسبیدن محتوا زیر هدر sticky */
+#top{ scroll-margin-top: 90px; }
+section{ scroll-margin-top: 90px; }
+
+/* Hero بهتر و خواناتر */
+.hero{ padding: 44px 0 24px !important; }
+.hero h1{ font-size: 30px !important; line-height: 1.35 !important; }
+.hero p{ font-size: 14px !important; line-height: 2 !important; max-width: 680px; }
+
+.heroLead{
+  margin-top: 10px;
+  color: rgba(229,231,235,.92);
+}
+
+.heroBullets{
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+  max-width: 720px;
+}
+
+.heroBullet{
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(229,231,235,.14);
+  border-radius: 16px;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.heroBullet strong{ color:#fff; }
+
+@media (max-width: 600px){
+  .hero h1{ font-size: 24px !important; }
+}
+/* بهبود ظاهری تایپوگرافی فارسی */
+h1, h2, h3{
+  letter-spacing: -0.3px;
+  font-weight: 800;
+}
+
+p{
+  font-weight: 400;
+  line-height: 2;
+}
+
+strong{
+  font-weight: 700;
+}
+
+  </style>
+</head>
+<div class="whatsapp-wrapper">
+  <span class="whatsapp-tooltip">پیام در واتساپ</span>
+  <a
+    href="https://wa.me/989044983371"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener"
+  >
+    💬
+  </a>
+</div>
+<script>
+  // همبرگر منو
+  const menuBtn = document.getElementById("menuBtn");
+  const mainNav = document.getElementById("mainNav");
+  if (menuBtn && mainNav){
+    menuBtn.addEventListener("click", () => {
+      mainNav.classList.toggle("open");
+      menuBtn.textContent = mainNav.classList.contains("open") ? "✕ بستن" : "☰ منو";
+    });
+
+    // وقتی روی لینک‌ها کلیک شد، منو بسته شود
+    mainNav.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        if (window.innerWidth <= 820){
+          mainNav.classList.remove("open");
+          menuBtn.textContent = "☰ منو";
+        }
+      });
+    });
+  }
+
+  // سایه هدر در اسکرول
+  const headerEl = document.querySelector("header");
+  window.addEventListener("scroll", () => {
+    if (!headerEl) return;
+    headerEl.classList.toggle("scrolled", window.scrollY > 8);
+  });
+</script>
+
+<body>
+  <header>
+  <div class="container">
+    <!-- برند -->
+    <div class="brand"> ... </div>
+
+    <button class="menu-btn" id="menuBtn" aria-label="باز و بسته کردن منو">☰ منو</button>
+
+    <nav id="mainNav">
+      ...
+    </nav>
+  </div>
+</header>
+
+      <nav>
+        <a href="#services">خدمات</a>
+        <a href="#resume">رزومه</a>
+        <a href="#workshops">کارگاه‌ها</a>
+        <a href="#resources">منابع</a>
+        <a href="#statement">بیانیه حرفه‌ای</a>
+        <a href="guidence.html">راهنمایی تحصیلی</a>
+<a href="#articles">یادداشت‌های آموزشی</a>
+<a href="#faq">سوالات پرتکرار</a>
+<a href="#testimonials">نظرات</a>
+<a href="#add-review">ثبت نظر</a>
+
+
+        <a href="#contact">تماس</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+  <div class="container hero-grid">
+
+    <!-- متن اصلی -->
+    <div>
+      <span class="badge">
+        <span class="accent">●</span>
+        مشاوره تحصیلی و تربیتی | متوسطه اول و دوم
+      </span>
+
+      <h1>
+        هادی پدرام
+        <span class="accent"> دبیر رسمی آموزش و پرورش</span>
+      </h1>
+
+      <p>
+        دبیر رسمی آموزش و پرورش در رشته
+        <strong>مشاوره و راهنمایی</strong> با
+        <strong>۶ سال سابقه</strong> فعالیت در
+        <strong>شهر اهر</strong>.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">درخواست مشاوره</a>
+        <a class="btn btn-outline" href="#resume">مشاهده رزومه</a>
+      </div>
+
+      <div class="kpis">
+        <div class="kpi">
+          <div class="n">برنامه‌ریزی تحصیلی</div>
+          <div class="t">هدف‌گذاری و پیگیری</div>
+        </div>
+        <div class="kpi">
+          <div class="n">مهارت مطالعه</div>
+          <div class="t">تمرکز و مرور</div>
+        </div>
+        <div class="kpi">
+          <div class="n">تربیتی</div>
+          <div class="t">انگیزه و نظم شخصی</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- کارت کناری -->
+    <aside class="hero-card">
+      <h3>خلاصه سریع</h3>
+      <div class="mini-list">
+        <div class="mini-item">
+          <div class="k">مقاطع</div>
+          <div class="v">متوسطه اول و دوم</div>
+        </div>
+        <div class="mini-item">
+          <div class="k">شهر</div>
+          <div class="v">اهر – آذربایجان شرقی</div>
+        </div>
+        <div class="mini-item">
+          <div class="k">ارتباط</div>
+          <div class="v">فرم تماس رسمی / واتساپ</div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+    </div>
+    <section id="statement" class="section-alt">
+  <div class="container">
+    <h2 class="section-title">بیانیه حرفه‌ای مشاور مدرسه</h2>
+    <p class="section-intro">
+      اصول و رویکرد کاری من در مشاوره مدرسه (متوسطه اول و دوم) با هدف ایجاد مسیر روشن، قابل اجرا و پیگیری‌محور.
+    </p>
+
+    <div class="two-col">
+      <div class="box">
+        <h3 style="font-size:16px;margin-bottom:10px;">رویکرد و ارزش‌ها</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>رازداری و احترام</h3>
+            <span class="timeline-date">اصل بنیادین اعتماد</span>
+            <p>حفظ شأن دانش‌آموز و خانواده، و ایجاد فضای امن برای گفت‌وگو و رشد.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>راهکارهای عملی</h3>
+            <span class="timeline-date">قابل اجرا و قابل پیگیری</span>
+            <p>تبدیل مشکلات کلی به قدم‌های کوچک و مشخص (برنامه، پیگیری، اصلاح).</p>
+          </div>
+          <div class="timeline-item">
+            <h3>همکاری مدرسه–خانواده</h3>
+            <span class="timeline-date">هم‌راستاسازی پیام‌ها</span>
+            <p>ایجاد هماهنگی بین خانه و مدرسه برای نتیجه پایدار و کاهش تعارض.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <h3 style="font-size:16px;margin-bottom:10px;">چارچوب جلسه مشاوره</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>۱) ارزیابی</h3>
+            <span class="timeline-date">شناخت وضعیت</span>
+            <p>بررسی عادت مطالعه، انگیزه، تمرکز، شرایط خانوادگی و مدرسه (در حد لازم).</p>
+          </div>
+          <div class="timeline-item">
+            <h3>۲) هدف‌گذاری</h3>
+            <span class="timeline-date">هدف‌های دقیق</span>
+            <p>تعیین هدف‌های کوتاه‌مدت و قابل سنجش برای هفته/ماه آینده.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>۳) برنامه و پیگیری</h3>
+            <span class="timeline-date">عمل + اصلاح</span>
+            <p>برنامه عملی، پیگیری پیشرفت و اصلاح مسیر بر اساس نتیجه واقعی.</p>
+          </div>
+        </div>
+
+        <div class="tags" style="margin-top:12px">
+          <span class="tag">متوسطه اول</span>
+          <span class="tag">متوسطه دوم</span>
+          <span class="tag">شهر اهر</span>
+          <span class="tag">۶ سال سابقه</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section-alt">
+    <div class="container">
+      <h2 class="section-title">خدمات آموزش و مشاوره</h2>
+      <p class="section-intro">
+        خدمات زیر به‌صورت رسمی و هدفمند ارائه می‌شوند. (می‌توانیم بعداً با جزئیات دقیق‌تر و شرایط شما شخصی‌سازی کنیم.)
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>مشاوره تحصیلی و برنامه‌ریزی</h3>
+          <p>بررسی وضعیت درسی، هدف‌گذاری، برنامه مطالعه، پیگیری و اصلاح مسیر.</p>
+          <small>مناسب دانش‌آموزان و خانواده‌ها</small>
+        </div>
+
+        <div class="card">
+          <h3>راهنمایی انتخاب رشته و مسیر</h3>
+          <p>شناخت علاقه/توانمندی، تصمیم‌گیری آگاهانه، و مسیرهای آموزشی/شغلی.</p>
+          <small>ویژه پایه‌های حساس انتخاب</small>
+        </div>
+
+        <div class="card">
+          <h3>مهارت‌های مطالعه و مدیریت زمان</h3>
+          <p>تمرکز، مرور، برنامه‌ریزی هفتگی، کاهش اهمال‌کاری و افزایش بهره‌وری.</p>
+          <small>به‌صورت فردی یا کارگاه</small>
+        </div>
+
+        <div class="card">
+          <h3>مشاوره تربیتی و مهارت‌های زندگی</h3>
+          <p>ارتباط مؤثر، نظم شخصی، مسئولیت‌پذیری، مدیریت هیجان و انگیزه.</p>
+          <small>با رویکرد آموزشی و عملی</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUME -->
+  <section id="resume">
+    <div class="container">
+      <h2 class="section-title">رزومه حرفه‌ای</h2>
+      <p class="section-intro">
+        این بخش به‌صورت رسمی تدوین شده و قابل ارائه برای مدارس، مراکز آموزشی و همکاری‌های مرتبط است.
+      </p>
+
+      <div class="two-col">
+        <div class="box">
+          <h3 style="font-size:16px;margin-bottom:10px;">خلاصه تخصصی</h3>
+         <p style="font-size:14px;color:#374151;">
+  دبیر رسمی آموزش و پرورش در رشته مشاوره و راهنمایی با ۶ سال سابقه فعالیت
+  در مقاطع متوسطه اول و دوم در شهر اهر (استان آذربایجان شرقی).
+  دارای تجربه در مشاوره تحصیلی، تربیتی و فردی دانش‌آموزان،
+  برنامه‌ریزی آموزشی، ارتقای مهارت‌های مطالعه و همراهی خانواده‌ها
+  در مسیر رشد تحصیلی و شخصیتی فرزندان.
+  رویکرد کاری من مبتنی بر راهکارهای عملی، قابل اجرا و پیگیری‌محور است.
+</p>
+
+
+          <div class="tags" aria-label="حوزه‌های کلیدی">
+            <span class="tag">مشاوره تحصیلی</span>
+            <span class="tag">راهنمایی و هدایت</span>
+            <span class="tag">مهارت‌های مطالعه</span>
+            <span class="tag">برنامه‌ریزی آموزشی</span>
+            <span class="tag">ارتباط مدرسه–خانواده</span>
+            <span class="tag">کارگاه آموزشی</span>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3 style="font-size:16px;margin-bottom:10px;">توانمندی‌ها (قابل سنجش)</h3>
+        <div class="timeline-item">
+  <h3>دبیر رسمی آموزش و پرورش – مشاوره و راهنمایی</h3>
+  <span class="timeline-date">۶ سال سابقه | شهر اهر – استان آذربایجان شرقی</span>
+  <p>
+    ارائه خدمات مشاوره تحصیلی، تربیتی و فردی به دانش‌آموزان
+    مقاطع متوسطه اول و دوم، اجرای برنامه‌های راهنمایی تحصیلی،
+    همکاری مستمر با کادر آموزشی و خانواده‌ها،
+    برگزاری جلسات مشاوره فردی و گروهی،
+    و مشارکت در ارتقای سلامت روان و عملکرد تحصیلی دانش‌آموزان.
+  </p>
+</div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="box" style="margin-top:18px;">
+        <h3 style="font-size:16px;margin-bottom:10px;">سوابق شغلی</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>دبیر رسمی آموزش و پرورش</h3>
+            <span class="timeline-date">مشاوره و راهنمایی</span>
+            <p>
+              ارائه خدمات مشاوره‌ای و آموزشی به دانش‌آموزان، اجرای برنامه‌های راهنمایی تحصیلی و تربیتی،
+              برگزاری جلسات مشاوره، و همکاری با کادر آموزشی برای ارتقای عملکرد و سلامت روان دانش‌آموزان.
+            </p>
+          </div>
+        </div>
+        <p class="hint">اگر «شهر/استان»، «پایه‌ها» یا «سال شروع» را بگویی، این بخش را دقیق‌تر و رسمی‌تر می‌کنم.</p>
+      </div>
+
+      <div class="two-col" style="margin-top:18px;">
+        <div class="box">
+          <h3 style="font-size:16px;margin-bottom:10px;">تحصیلات</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <h3>رشته اصلی: مشاوره و راهنمایی</h3>
+              <span class="timeline-date">دانشگاه / سال‌ها (قابل تکمیل)</span>
+              <p>تکمیل اطلاعات دانشگاه و سال‌ها برای نسخه نهایی رزومه.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3 style="font-size:16px;margin-bottom:10px;">دوره‌ها و کارگاه‌ها</h3>
+          <p style="font-size:14px;color:#374151;">
+            این بخش را می‌توانیم با عناوین واقعی دوره‌ها (مثلاً «مهارت‌های مشاوره تحصیلی»، «فن بیان»، «روان‌شناسی نوجوان»، ...)
+            به‌صورت رسمی تکمیل کنیم.
+          </p>
+          <div class="tags">
+            <span class="tag">کارگاه‌های مدرسه</span>
+            <span class="tag">تربیتی/تحصیلی</span>
+            <span class="tag">مهارت‌های ارتباطی</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKSHOPS -->
+  <section id="workshops" class="section-alt">
+    <div class="container">
+      <h2 class="section-title">کارگاه‌ها و برنامه‌های پیشنهادی</h2>
+      <p class="section-intro">
+        این موارد برای مدارس و مراکز آموزشی قابل اجرا هستند. می‌توانیم بسته به مقطع و نیاز، سرفصل‌ها را دقیق‌تر کنیم.
+      </p>
+
+      <div class="card">
+  <h3>مشاوره تحصیلی متوسطه اول و دوم</h3>
+  <p>
+    بررسی وضعیت تحصیلی دانش‌آموزان، شناسایی نقاط قوت و ضعف،
+    برنامه‌ریزی درسی، پیگیری پیشرفت و اصلاح مسیر.
+  </p>
+  <small>ویژه دانش‌آموزان شهر اهر</small>
+</div>
+
+       <div class="card">
+  <h3>مشاوره تربیتی و رفتاری</h3>
+  <p>
+    کمک به بهبود مهارت‌های فردی، نظم شخصی، مسئولیت‌پذیری،
+    مدیریت هیجان و تقویت انگیزه تحصیلی دانش‌آموزان.
+  </p>
+  <small>همراهی خانواده و مدرسه</small>
+</div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section id="resources">
+    <div class="container">
+      <h2 class="section-title">منابع و یادداشت‌های آموزشی</h2>
+      <p class="section-intro">
+        این بخش را می‌توانیم بعداً با مقاله‌ها/فایل‌های PDF/جزوه‌های کوتاه شما تکمیل کنیم.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>نمونه موضوع ۱</h3>
+          <p>برنامه‌ریزی مطالعه در ۴ قدم (قابل تبدیل به مقاله/فایل PDF).</p>
+          <small>به‌زودی</small>
+        </div>
+        <div class="card">
+          <h3>نمونه موضوع ۲</h3>
+          <p>چگونه اهمال‌کاری را مدیریت کنیم؟ (نکات اجرایی برای دانش‌آموزان).</p>
+          <small>به‌زودی</small>
+        </div>
+        <div class="card">
+          <h3>نمونه موضوع ۳</h3>
+          <p>راهنمای کوتاه انتخاب رشته (چارچوب تصمیم‌گیری).</p>
+          <small>به‌زودی</small>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="articles">
+  <div class="container">
+    <h2 class="section-title">یادداشت‌های آموزشی</h2>
+    <p class="section-intro">
+      مطالب کوتاه، کاربردی و قابل اجرا برای دانش‌آموزان متوسطه و خانواده‌ها
+      بر اساس تجربه آموزشی و مشاوره‌ای.
+    </p>
+
+    <div class="cards">
+
+     <article class="card" id="article-planning">
+  <h3>چگونه دانش‌آموز متوسطه برنامه‌ریزی کند؟</h3>
+
+  <div class="article-meta">
+    <span>تاریخ انتشار: آذر ۱۴۰۴</span>
+  </div>
+
+  <p>
+    برنامه‌ریزی مؤثر یعنی «کار مشخص در زمان مشخص».
+    بسیاری از دانش‌آموزان برنامه می‌نویسند اما اجرا نمی‌کنند،
+    چون برنامه‌شان سنگین و غیرواقعی است.
+  </p>
+
+  <p>
+    <strong>چارچوب ساده ۵ مرحله‌ای:</strong><br>
+    ۱) هدف هفته را دقیق بنویسید.<br>
+    ۲) زمان‌های کوتاه و ثابت (۶۰–۹۰ دقیقه).<br>
+    ۳) درس سخت را در ابتدای مطالعه انجام دهید.<br>
+    ۴) مرور کوتاه روزانه داشته باشید.<br>
+    ۵) آخر هفته بازبینی و اصلاح کنید.
+  </p>
+
+  <div class="article-tags">
+    <span class="article-tag">متوسطه اول</span>
+    <span class="article-tag">متوسطه دوم</span>
+    <span class="article-tag">برنامه‌ریزی</span>
+  </div>
+
+  <div class="article-actions">
+    <button class="copy-btn" onclick="copyLink('article-planning')">کپی لینک مقاله</button>
+  </div>
+
+  <div class="signature">هادی پدرام – دبیر مشاوره و راهنمایی</div>
+</article>
+
+
+ <article class="card" id="article-family">
+  <h3>نقش خانواده در انگیزه تحصیلی نوجوان</h3>
+
+  <div class="article-meta">
+    <span>تاریخ انتشار: آذر ۱۴۰۴</span>
+  </div>
+
+  <p>
+    انگیزه تحصیلی نوجوان با فشار و مقایسه ایجاد نمی‌شود.
+    انگیزه زمانی شکل می‌گیرد که نوجوان احساس حمایت، امنیت و درک داشته باشد.
+  </p>
+
+  <p>
+    <strong>نکات کلیدی برای خانواده‌ها:</strong><br>
+    • تشویق تلاش، نه فقط نمره.<br>
+    • حذف مقایسه با دیگران.<br>
+    • ایجاد محیط مطالعه آرام و زمان ثابت.<br>
+    • گفت‌وگوی کوتاه و حمایتی روزانه.<br>
+    • تعیین انتظارهای واقع‌بینانه.
+  </p>
+
+  <div class="article-tags">
+    <span class="article-tag">خانواده</span>
+    <span class="article-tag">انگیزه</span>
+    <span class="article-tag">نوجوان</span>
+  </div>
+
+  <div class="article-actions">
+    <button class="copy-btn" onclick="copyLink('article-family')">کپی لینک مقاله</button>
+  </div>
+
+  <div class="signature">هادی پدرام – دبیر مشاوره و راهنمایی</div>
+</article>
+<article class="card" id="article-mistakes">
+  <h3>اشتباهات رایج مطالعه در متوسطه (و راه‌حل‌ها)</h3>
+
+  <div class="article-meta">
+    <span>تاریخ انتشار: آذر ۱۴۰۴</span>
+  </div>
+
+  <p>
+    بسیاری از دانش‌آموزان زمان می‌گذارند اما نتیجه نمی‌گیرند،
+    چون چند اشتباه ساده ولی رایج را تکرار می‌کنند.
+  </p>
+
+  <p>
+    <strong>اشتباهات مهم:</strong><br>
+    • فقط خواندن بدون تمرین.<br>
+    • مرور نکردن مطالب.<br>
+    • مطالعه طولانی بدون استراحت.<br>
+    • موبایل کنار دست هنگام مطالعه.<br>
+    • عقب انداختن درس‌های سخت.
+  </p>
+
+  <p>
+    <strong>راه‌حل:</strong>
+    مطالعه کوتاه، تمرین‌محور، مرور منظم و تمرکز بالا.
+  </p>
+
+  <div class="article-tags">
+    <span class="article-tag">مطالعه</span>
+    <span class="article-tag">متوسطه</span>
+    <span class="article-tag">اشتباهات رایج</span>
+  </div>
+
+  <div class="article-actions">
+    <button class="copy-btn" onclick="copyLink('article-mistakes')">کپی لینک مقاله</button>
+  </div>
+
+  <div class="signature">هادی پدرام – دبیر مشاوره و راهنمایی</div>
+</article>
+
+        </div>
+  </div>
+</section>
+
+<section id="faq" class="section-alt">
+  <div class="container">
+    <h2 class="section-title">سوالات پرتکرار</h2>
+    <p class="section-intro">
+      پاسخ‌های کوتاه و روشن به سوالات رایج خانواده‌ها و دانش‌آموزان (متوسطه اول و دوم).
+    </p>
+
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>مشاوره تحصیلی برای چه پایه‌هایی انجام می‌شود؟</summary>
+        <div class="faq-answer">
+          برای مقاطع <strong>متوسطه اول و دوم</strong> ارائه می‌شود و بسته به نیاز دانش‌آموز (برنامه‌ریزی، مطالعه، انگیزه، انتخاب مسیر) تنظیم می‌گردد.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>جلسه مشاوره چگونه برگزار می‌شود (حضوری یا آنلاین)؟</summary>
+        <div class="faq-answer">
+          امکان برگزاری <strong>حضوری</strong> یا <strong>آنلاین</strong> وجود دارد. روش مناسب بر اساس شرایط خانواده/دانش‌آموز انتخاب می‌شود.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>برای نتیجه بهتر، چند جلسه لازم است؟</summary>
+        <div class="faq-answer">
+          بسته به موضوع، معمولاً یک جلسه برای ارزیابی و هدف‌گذاری و سپس چند جلسه پیگیری پیشنهاد می‌شود. معیار اصلی، <strong>پیشرفت قابل مشاهده</strong> و <strong>ثبات در اجرا</strong> است.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>آیا خانواده هم در روند مشاوره نقش دارد؟</summary>
+        <div class="faq-answer">
+          بله. در موارد لازم، با حفظ اصول رازداری، خانواده راهنمایی‌های اجرایی دریافت می‌کند تا حمایت مؤثر در خانه شکل بگیرد.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>اگر دانش‌آموز بی‌انگیزه باشد، از کجا شروع کنیم؟</summary>
+        <div class="faq-answer">
+          ابتدا علت‌ها بررسی می‌شود (فشار، مقایسه، شکست‌های قبلی، بی‌نظمی، اضطراب…). سپس با هدف‌های کوچک و برنامه سبک، روند انگیزه و اعتمادبه‌نفس به‌صورت تدریجی تقویت می‌گردد.
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+<section id="testimonials" class="section-alt">
+  <div class="container">
+    <h2 class="section-title">نظر والدین و دانش‌آموزان</h2>
+    <p class="section-intro">
+      بازخوردهای واقعی از خانواده‌ها و دانش‌آموزان مقاطع متوسطه اول و دوم
+      (با حفظ حریم خصوصی).
+    </p>
+
+    <div class="cards">
+
+      <!-- نظر 1 -->
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          برنامه‌ریزی هفتگی دقیق و پیگیری منظم باعث شد نظم مطالعه فرزندم
+          بهتر شود و استرس امتحان‌ها به‌طور محسوسی کاهش پیدا کند.
+        </p>
+        <div class="testimonial-author">ولی دانش‌آموز</div>
+        <div class="testimonial-meta">متوسطه دوم – شهر اهر</div>
+      </div>
+
+      <!-- نظر 2 -->
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          روش‌های مطالعه و مرور را یاد گرفتم.
+          با اینکه زمان مطالعه‌ام کمتر بود، نتیجه‌ام بهتر شد
+          چون درست‌تر و هدفمندتر درس می‌خواندم.
+        </p>
+        <div class="testimonial-author">دانش‌آموز</div>
+        <div class="testimonial-meta">مقطع متوسطه اول</div>
+      </div>
+
+      <!-- نظر 3 -->
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          رویکرد عملی و ارتباط مؤثر با خانواده‌ها
+          باعث شد دانش‌آموزان در اجرای برنامه‌های آموزشی
+          پایدارتر و منظم‌تر عمل کنند.
+        </p>
+        <div class="testimonial-author">کادر آموزشی</div>
+        <div class="testimonial-meta">همکاری مدرسه</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section id="add-review">
+  <div class="container">
+    <h2 class="section-title">ثبت نظر (والدین / دانش‌آموزان)</h2>
+    <p class="section-intro">
+      اگر از جلسه مشاوره یا برنامه‌ریزی رضایت داشتید، لطفاً بازخورد خود را ثبت کنید.
+      اطلاعات شخصی شما منتشر نمی‌شود و فقط «نقش» و «مقطع» نمایش داده می‌شود.
+    </p>
+
+    <div class="two-col">
+      <div class="box">
+        <form class="form" id="reviewForm">
+          <div class="row">
+            <select id="rRole" required>
+              <option value="" selected disabled>نقش *</option>
+              <option>ولی دانش‌آموز</option>
+              <option>دانش‌آموز</option>
+              <option>کادر آموزشی</option>
+            </select>
+
+            <select id="rLevel" required>
+              <option value="" selected disabled>مقطع *</option>
+              <option>متوسطه اول</option>
+              <option>متوسطه دوم</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <select id="rRate" required>
+              <option value="" selected disabled>امتیاز *</option>
+              <option>★★★★★ (۵ از ۵)</option>
+              <option>★★★★☆ (۴ از ۵)</option>
+              <option>★★★☆☆ (۳ از ۵)</option>
+              <option>★★☆☆☆ (۲ از ۵)</option>
+              <option>★☆☆☆☆ (۱ از ۵)</option>
+            </select>
+
+            <select id="rCity" required>
+              <option value="" selected disabled>شهر *</option>
+              <option>اهر</option>
+              <option>سایر</option>
+            </select>
+          </div>
+
+          <textarea id="rText" rows="5" placeholder="متن نظر شما (مختصر و محترمانه) *" required></textarea>
+
+          <button class="btn btn-primary" type="submit">ساخت متن و ارسال</button>
+
+          <div class="notice" id="reviewNotice"></div>
+        </form>
+      </div>
+
+      <div class="box">
+        <h3 style="font-size:16px;margin-bottom:8px;">روش ارسال</h3>
+        <p style="font-size:14px;color:#374151;margin-bottom:8px;">
+          بعد از ثبت فرم، یک متن آماده ساخته می‌شود.
+          آن را کپی کنید و از طریق واتساپ یا ایمیل ارسال کنید.
+        </p>
+
+        <p><strong>واتساپ:</strong>
+          <a href="https://wa.me/989044983371" target="_blank" rel="noopener">09044983371</a>
+        </p>
+        <p><strong>ایمیل:</strong>
+          <a href="mailto:hadipedram1376@gmail.com">hadipedram1376@gmail.com</a>
+        </p>
+        <p class="hint" style="margin-top:10px;">
+          نکته: نام و شماره تماس در سایت نمایش داده نمی‌شود (حفظ حریم خصوصی).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section-alt">
+    <div class="container">
+      <h2 class="section-title">فرم تماس رسمی (درخواست مشاوره / همکاری)</h2>
+      <p class="section-intro">
+        لطفاً اطلاعات را دقیق وارد کنید تا امکان پاسخ‌گویی سریع‌تر فراهم شود.
+      </p>
+
+      <div class="contact-grid">
+        <div class="box">
+          <form class="form" id="contactForm">
+            <div class="row">
+              <input id="fullName" type="text" placeholder="نام و نام خانوادگی *" required />
+              <input id="phone" type="tel" placeholder="شماره تماس (اختیاری)" />
+            </div>
+
+            <div class="row">
+              <input id="email" type="email" placeholder="ایمیل *" required />
+              <select id="requestType" required>
+                <option value="" selected disabled>نوع درخواست *</option>
+                <option>مشاوره تحصیلی</option>
+                <option>مشاوره تربیتی/رفتاری</option>
+                <option>انتخاب رشته/مسیر</option>
+                <option>برگزاری کارگاه در مدرسه</option>
+                <option>همکاری آموزشی</option>
+                <option>سایر</option>
+              </select>
+            </div>
+
+            <div class="row">
+              <select id="audience" required>
+                <option value="" selected disabled>مخاطب *</option>
+                <option>دانش‌آموز</option>
+                <option>ولی/خانواده</option>
+                <option>مدرسه/کادر آموزشی</option>
+                <option>سایر</option>
+              </select>
+              <select id="preferred" required>
+                <option value="" selected disabled>روش ارتباط *</option>
+                <option>آنلاین</option>
+                <option>حضوری</option>
+                <option>تماس تلفنی</option>
+              </select>
+            </div>
+
+            <textarea id="message" rows="5" placeholder="شرح درخواست (مختصر و دقیق) *" required></textarea>
+
+            <div class="hint">
+              توجه: این فرم فعلاً پیام را ارسال نمی‌کند؛ بعداً می‌توانیم آن را به ایمیل/Google Form/Backend وصل کنیم.
+              فعلاً با زدن دکمه، یک «متن آماده» برای کپی کردن به شما می‌دهد.
+            </div>
+
+            <button class="btn btn-primary" type="submit">ساخت متن درخواست</button>
+
+            <div class="notice" id="notice"></div>
+          </form>
+        </div>
+
+        <div class="box">
+          <h3 style="font-size:16px;margin-bottom:10px;">اطلاعات تماس</h3>
+          <p style="font-size:14px;color:#374151;margin-bottom:8px;">
+            برای درخواست رسمی، ابتدا فرم را تکمیل کنید. سپس متن آماده را از پایین فرم کپی کرده و برای من ارسال کنید.
+          </p>
+
+         <p><strong>ایمیل:</strong> <a href="mailto:hadipedram1376@gmail.com">hadipedram1376@gmail.com</a></p>
+
+<p><strong>واتساپ:</strong>
+  <a href="https://wa.me/989044983371" target="_blank" rel="noopener">09044983371</a>
+</p>
+
+          <p><strong>GitHub (اختیاری):</strong> <a href="#" target="_blank">github.com/username</a></p>
+
+          <div style="margin-top:14px">
+            <h3 style="font-size:16px;margin-bottom:6px;">ساعات پاسخ‌گویی</h3>
+            <p class="hint">این قسمت را می‌توانی بعداً با زمان‌های دقیق خودت تکمیل کنی.</p>
+            <div class="tags">
+              <span class="tag">شنبه تا چهارشنبه</span>
+              <span class="tag">ساعت 16 تا 20</span>
+              <span class="tag">پنجشنبه</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© 2025 - هادی پدرام | وب‌سایت رسمی آموزش و مشاوره</div>
+  </footer>
+
+  <script>
+    const form = document.getElementById("contactForm");
+    const notice = document.getElementById("notice");
+
+    function clean(v){ return String(v || "").trim(); }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const fullName = clean(document.getElementById("fullName").value);
+      const phone = clean(document.getElementById("phone").value);
+      const email = clean(document.getElementById("email").value);
+      const requestType = clean(document.getElementById("requestType").value);
+      const audience = clean(document.getElementById("audience").value);
+      const preferred = clean(document.getElementById("preferred").value);
+      const message = clean(document.getElementById("message").value);
+
+      const lines = [
+        "درخواست رسمی مشاوره / همکاری",
+        "--------------------------------",
+        `نام: ${fullName}`,
+        `ایمیل: ${email}`,
+        `شماره تماس: ${phone || "ثبت نشده"}`,
+        `نوع درخواست: ${requestType}`,
+        `مخاطب: ${audience}`,
+        `روش ارتباط ترجیحی: ${preferred}`,
+        "",
+        "شرح درخواست:",
+        message,
+        "",
+        "سپاسگزارم."
+      ];
+
+      const text = lines.join("\n");
+
+      notice.style.display = "block";
+      notice.innerHTML = `
+        <strong>متن آماده ساخته شد:</strong>
+        <div style="margin-top:8px;white-space:pre-wrap;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px;font-size:13px;line-height:1.7">${text}</div>
+        <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+          <button type="button" class="btn btn-primary" id="copyBtn">کپی متن</button>
+          <button type="button" class="btn" style="border:1px solid #d1d5db;background:#fff" id="resetBtn">پاک کردن فرم</button>
+        </div>
+      `;
+
+      document.getElementById("copyBtn").addEventListener("click", async () => {
+        try{
+          await navigator.clipboard.writeText(text);
+          alert("متن کپی شد ✅");
+        }catch{
+          alert("کپی خودکار انجام نشد. متن را دستی انتخاب و کپی کن.");
+        }
+      });
+
+      document.getElementById("resetBtn").addEventListener("click", () => {
+        form.reset();
+        notice.style.display = "none";
+        notice.innerHTML = "";
+      });
+    });
+  </script>
+  <script>
+  // فرم ساخت متن نظر
+  const reviewForm = document.getElementById("reviewForm");
+  const reviewNotice = document.getElementById("reviewNotice");
+
+  function enc(s){ return encodeURIComponent(String(s || "").trim()); }
+
+  if (reviewForm){
+    reviewForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const role = document.getElementById("rRole").value;
+      const level = document.getElementById("rLevel").value;
+      const rate = document.getElementById("rRate").value;
+      const city = document.getElementById("rCity").value;
+      const text = document.getElementById("rText").value.trim();
+
+      const msg =
+`ثبت نظر (برای انتشار در سایت با حفظ حریم خصوصی)
+نقش: ${role}
+مقطع: ${level}
+شهر: ${city}
+امتیاز: ${rate}
+
+متن نظر:
+${text}`;
+
+      const wa = `https://wa.me/989044983371?text=${enc(msg)}`;
+      const mail = `mailto:hadipedram1376@gmail.com?subject=${enc("ثبت نظر برای سایت")}&body=${enc(msg)}`;
+
+      reviewNotice.style.display = "block";
+      reviewNotice.innerHTML = `
+        <strong>متن نظر آماده شد:</strong>
+        <div style="margin-top:8px;white-space:pre-wrap;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px;font-size:13px;line-height:1.7">${msg}</div>
+        <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn btn-primary" href="${wa}" target="_blank" rel="noopener">ارسال در واتساپ</a>
+          <a class="btn" style="border:1px solid #d1d5db;background:#fff" href="${mail}">ارسال ایمیل</a>
+        </div>
+      `;
+    });
+  }
+</script>
+
+</body>
+</html>
