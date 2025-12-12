@@ -5,6 +5,9 @@
   <title>هادی پدرام | دبیر رسمی آموزش و پرورش | مشاوره و راهنمایی</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="وب‌سایت رسمی هادی پدرام - دبیر رسمی آموزش و پرورش (مشاوره و راهنمایی) | خدمات مشاوره تحصیلی و تربیتی، کارگاه‌ها و ارتباط برای همکاری." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     /* Testimonials */
@@ -224,7 +227,9 @@
 
 
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#f3f4f6;color:#111827;line-height:1.85}
+    body{
+  font-family: "Vazirmatn", system-ui, -apple-system, "Segoe UI", sans-serif;
+;background:#f3f4f6;color:#111827;line-height:1.85}
     a{text-decoration:none;color:inherit}
     .container{width:min(1100px,100% - 40px);margin:0 auto}
 
@@ -386,6 +391,84 @@ header.scrolled{
     font-size:28px;
   }
 }
+/* جلوگیری از چسبیدن محتوا زیر هدر sticky */
+#top{ scroll-margin-top: 90px; }
+section{ scroll-margin-top: 90px; }
+
+/* Hero بهتر و خواناتر */
+.hero{ padding: 44px 0 24px !important; }
+.hero h1{ font-size: 30px !important; line-height: 1.35 !important; }
+.hero p{ font-size: 14px !important; line-height: 2 !important; max-width: 680px; }
+
+.heroLead{
+  margin-top: 10px;
+  color: rgba(229,231,235,.92);
+}
+
+.heroBullets{
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+  max-width: 720px;
+}
+
+.heroBullet{
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(229,231,235,.14);
+  border-radius: 16px;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.heroBullet strong{ color:#fff; }
+
+@media (max-width: 600px){
+  .hero h1{ font-size: 24px !important; }
+}
+/* بهبود ظاهری تایپوگرافی فارسی */
+h1, h2, h3{
+  letter-spacing: -0.3px;
+  font-weight: 800;
+}
+
+p{
+  font-weight: 400;
+  line-height: 2;
+}
+
+strong{
+  font-weight: 700;
+}
+/* تنظیم حرفه‌ای فاصله پاراگراف‌ها */
+p{
+  margin-bottom: 14px;
+}
+
+section p:last-child{
+  margin-bottom: 0;
+}
+
+/* فاصله بهتر بین تیتر و متن */
+h1 + p,
+h2 + p,
+h3 + p{
+  margin-top: 10px;
+}
+
+/* فاصله بین پاراگراف‌های پشت سر هم */
+p + p{
+  margin-top: 6px;
+}
+
+/* لیست‌ها نفس‌دارتر */
+ul, ol{
+  margin: 10px 0 14px;
+}
+
+li{
+  margin-bottom: 6px;
+}
 
   </style>
 </head>
@@ -462,84 +545,71 @@ header.scrolled{
   </header>
 
   <!-- HERO -->
-  <div class="title">دبیر رسمی آموزش و پرورش | مشاوره و راهنمایی</div>
+  <section class="hero">
+  <div class="container hero-grid">
 
-    <p>
-  دبیر رسمی آموزش و پرورش در حوزه <strong>مشاوره و راهنمایی</strong> با
-  <strong>۶ سال سابقه فعالیت حرفه‌ای</strong> در
-  <strong>استان آذربایجان شرقی، شهر اهر</strong>.
-  تمرکز فعالیت‌های من بر راهنمایی تحصیلی و تربیتی دانش‌آموزان
-  <strong>مقاطع متوسطه اول و دوم</strong>، ارتقای مهارت‌های مطالعه،
-  مدیریت انگیزه، و تقویت ارتباط مؤثر بین مدرسه و خانواده است.
-  این وب‌سایت با هدف معرفی خدمات آموزشی و مشاوره‌ای و ایجاد مسیر ارتباط رسمی طراحی شده است.
-</p>
-<a class="btn btn-resume" href="cv-hadi-pedram.pdf" target="_blank" rel="noopener">
-  دانلود رزومه PDF
-</a>
-<a class="btn btn-resume" href="articles.pdf" target="_blank" rel="noopener">
-  دانلود مقالات PDF
-</a>
+    <!-- متن اصلی -->
+    <div>
+      <span class="badge">
+        <span class="accent">●</span>
+        مشاوره تحصیلی و تربیتی | متوسطه اول و دوم
+      </span>
 
-  <div class="hero-actions">
-  <a class="btn btn-primary" href="#contact">
-    درخواست مشاوره / همکاری
-  </a>
+      <h1>
+        هادی پدرام
+        <span class="accent"> دبیر رسمی آموزش و پرورش</span>
+      </h1>
 
- <a
-href="https://wa.me/989044983371?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%AF%D8%B1%DB%8C%D8%A7%D9%81%D8%AA%20%D9%85%D8%B4%D8%A7%D9%88%D8%B1%D9%87%20%D8%AA%D8%AD%D8%B5%DB%8C%D9%84%DB%8C%20%D8%AF%D8%B1%20%D9%85%D9%82%D8%B7%D8%B9%20%D9%85%D8%AA%D9%88%D8%B3%D8%B7%D9%87%20%D9%BE%DB%8C%D8%A7%D9%85%20%D9%85%DB%8C%E2%80%8C%D8%AF%D9%87%D9%85"
-  class="whatsapp-float"
-  target="_blank"
-  rel="noopener"
-  aria-label="پیام در واتساپ"
->
-  💬
-</a>
+      <p>
+        دبیر رسمی آموزش و پرورش در رشته
+        <strong>مشاوره و راهنمایی</strong> با
+        <strong>۶ سال سابقه</strong> فعالیت در
+        <strong>شهر اهر</strong>.
+      </p>
 
-
-<a class="btn btn-resume" href="#resume">
-   📄 مشاهده رزومه
-</a>
-
-</div>
-
-
-        <div class="kpis" aria-label="شاخص‌های فعالیت">
-          <div class="kpi">
-            <div class="n">مشاوره تحصیلی</div>
-            <div class="t">راهنمایی مسیر، انتخاب رشته، برنامه‌ریزی</div>
-          </div>
-          <div class="kpi">
-            <div class="n">مهارت‌های مطالعه</div>
-            <div class="t">عادت‌سازی، تمرکز، مدیریت زمان</div>
-          </div>
-          <div class="kpi">
-            <div class="n">تربیتی و رفتاری</div>
-            <div class="t">ارتباط، انگیزه، نظم شخصی</div>
-          </div>
-        </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">درخواست مشاوره</a>
+        <a class="btn btn-outline" href="#resume">مشاهده رزومه</a>
       </div>
 
-      <aside class="hero-card" aria-label="خلاصه سریع">
-        <h3>خلاصه سریع</h3>
-        <div class="mini-list">
-          <div class="mini-item">
-            <div class="k">سمت</div>
-            <div class="v">دبیر رسمی آموزش و پرورش</div>
-          </div>
-          <div class="mini-item">
-            <div class="k">تخصص</div>
-            <div class="v">مشاوره و راهنمایی (تحصیلی/تربیتی)</div>
-          </div>
-          <div class="mini-item">
-            <div class="k">شیوه همکاری</div>
-            <div class="v">جلسه حضوری/آنلاین، کارگاه مدرسه، همکاری با والدین</div>
-          </div>
-          <div class="mini-item">
-            <div class="k">نکته</div>
-            <div class="v">برای درخواست رسمی از فرم «تماس» استفاده کنید.</div>
-          </div>
+      <div class="kpis">
+        <div class="kpi">
+          <div class="n">برنامه‌ریزی تحصیلی</div>
+          <div class="t">هدف‌گذاری و پیگیری</div>
         </div>
-      </aside>
+        <div class="kpi">
+          <div class="n">مهارت مطالعه</div>
+          <div class="t">تمرکز و مرور</div>
+        </div>
+        <div class="kpi">
+          <div class="n">تربیتی</div>
+          <div class="t">انگیزه و نظم شخصی</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- کارت کناری -->
+    <aside class="hero-card">
+      <h3>خلاصه سریع</h3>
+      <div class="mini-list">
+        <div class="mini-item">
+          <div class="k">مقاطع</div>
+          <div class="v">متوسطه اول و دوم</div>
+        </div>
+        <div class="mini-item">
+          <div class="k">شهر</div>
+          <div class="v">اهر – آذربایجان شرقی</div>
+        </div>
+        <div class="mini-item">
+          <div class="k">ارتباط</div>
+          <div class="v">فرم تماس رسمی / واتساپ</div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
     </div>
     <section id="statement" class="section-alt">
   <div class="container">
@@ -1270,9 +1340,3 @@ ${text}`;
 
 </body>
 </html>
-git init
-git add .
-git commit -m "first version"
-git branch -M main
-git remote add origin https://github.com/<USERNAME>/hadi-pedram-site.git
-git push -u origin main
