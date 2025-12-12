@@ -541,6 +541,38 @@ li{
     width:100%;
   }
 }
+/* ===== MOBILE MENU FIX (FINAL) ===== */
+@media (max-width: 860px){
+
+  /* مخفی کردن منوی دسکتاپ */
+  header nav{
+    display: none !important;
+  }
+
+  /* نمایش دکمه منو */
+  .menu-btn{
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* منوی موبایل (وقتی باز می‌شود) */
+  header nav.open{
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    gap: 6px;
+  }
+
+  header nav.open a{
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: #f1f5f9;
+    font-size: 15px;
+  }
+}
 
   </style>
 </head>
@@ -585,17 +617,7 @@ li{
 </script>
 
 <body>
-  <header>
-  <div class="container">
-    <!-- برند -->
-    <div class="brand"> ... </div>
-
-    <button class="menu-btn" id="menuBtn" aria-label="باز و بسته کردن منو">☰ منو</button>
-
-    <nav id="mainNav">
-      ...
-    </nav>
-  </div>
+ 
 </header>
 
       <nav>
