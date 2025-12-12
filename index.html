@@ -518,6 +518,29 @@ li{
     right: 14px;
   }
 }
+@media (max-width: 860px){
+  .menu-btn{
+    display:inline-flex !important;
+    align-items:center;
+    gap:8px;
+  }
+
+  #mainNav{
+    display:none;
+    width:100%;
+    flex-direction:column;
+    gap:8px;
+    padding:10px 0 0;
+  }
+
+  #mainNav.open{
+    display:flex;
+  }
+
+  #mainNav a{
+    width:100%;
+  }
+}
 
   </style>
 </head>
