@@ -440,6 +440,35 @@ p{
 strong{
   font-weight: 700;
 }
+/* تنظیم حرفه‌ای فاصله پاراگراف‌ها */
+p{
+  margin-bottom: 14px;
+}
+
+section p:last-child{
+  margin-bottom: 0;
+}
+
+/* فاصله بهتر بین تیتر و متن */
+h1 + p,
+h2 + p,
+h3 + p{
+  margin-top: 10px;
+}
+
+/* فاصله بین پاراگراف‌های پشت سر هم */
+p + p{
+  margin-top: 6px;
+}
+
+/* لیست‌ها نفس‌دارتر */
+ul, ol{
+  margin: 10px 0 14px;
+}
+
+li{
+  margin-bottom: 6px;
+}
 
   </style>
 </head>
