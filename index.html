@@ -752,6 +752,39 @@ header{ position:sticky; top:0; z-index:1000; background:rgba(255,255,255,.96); 
 @media (max-width: 860px){
   .hero-grid{ grid-template-columns:1fr !important; }
 }
+/* === FIX horizontal scroll on mobile === */
+html, body{
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* هر چیزی که ممکنه از عرض بزنه بیرون */
+*, *::before, *::after{
+  max-width: 100%;
+}
+
+/* متن‌های طولانی/Badge ها که باعث بیرون‌زدگی می‌شن */
+.badge{
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+/* موبایل: همه گریدهای 2 ستونه تک ستونه */
+@media (max-width: 860px){
+  .two-col{ grid-template-columns: 1fr !important; }
+  .contact-grid{ grid-template-columns: 1fr !important; }
+  .row{ grid-template-columns: 1fr !important; }
+
+  /* اگر هنوز کارت‌ها تنگ هستند */
+  .cards{ grid-template-columns: 1fr !important; }
+
+  /* اگر KPIها باعث فشار می‌شن، دو ستونه یا تک ستونه کن */
+  .hero .kpis{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+}
+
+@media (max-width: 420px){
+  .hero .kpis{ grid-template-columns: 1fr !important; }
+}
 
 
   </style>
