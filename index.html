@@ -1187,6 +1187,68 @@ html, body{
   width:100%;
   overflow-x:hidden;
 }
+/* ===== HEADER: NO OVERLAP (MOBILE + DESKTOP) ===== */
+.head{
+  display:grid !important;
+  align-items:center;
+  gap:12px;
+}
+
+/* DESKTOP */
+@media (min-width: 861px){
+  .head{
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "brand nav";
+  }
+  .brand{ grid-area: brand; min-width:0; }
+  #mainNav{
+    grid-area: nav;
+    display:flex !important;
+    justify-content:flex-end;   /* منو سمت چپ/راست؟ برای RTL این خوبه */
+    align-items:center;
+    flex-wrap:wrap;             /* اگر جا نشد، بره خط بعد (نه روی هم) */
+    row-gap:10px;
+    column-gap:14px;
+    min-width:0;
+  }
+  .menu-btn{ display:none !important; }
+}
+
+/* MOBILE */
+@media (max-width: 860px){
+  .head{
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "btn brand"
+      "nav nav";
+  }
+
+  .menu-btn{
+    grid-area: btn;
+    display:inline-flex !important;
+    justify-self:start;   /* گوشه‌ی بالا (RTL) */
+    align-items:center;
+  }
+
+  .brand{
+    grid-area: brand;
+    min-width:0;
+    text-align:right;
+  }
+
+  #mainNav{
+    grid-area: nav;
+    width:100%;
+  }
+}
+
+/* prevent any squeeze/overlap in brand text */
+.brand .role{
+  max-width:100%;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
 
   </style>
 </head>
