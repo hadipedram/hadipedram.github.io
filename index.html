@@ -581,6 +581,52 @@ header.scrolled{
     background:#eff6ff;
   }
 }
+/* ===== Header Mobile Fix ===== */
+
+/* مشکل اصلی: min-width باعث خراب شدن چینش موبایل میشه */
+.brand{ min-width: 0 !important; }
+
+/* متن نقش کوتاه و فیت */
+.brand .role{
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* موبایل */
+@media (max-width: 860px){
+
+  /* هدر یک ردیف: برند + دکمه */
+  .head{
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  /* برند فضا رو بگیره، دکمه گوشه بمونه */
+  .brand{
+    flex: 1 1 auto;
+    min-width: 0 !important;
+  }
+
+  .menu-btn{
+    flex: 0 0 auto;
+    margin: 0;
+  }
+
+  /* اگر میخوای دکمه سمت راستِ صفحه (RTL) باشه */
+  .head{ flex-direction: row-reverse; }
+  /* و برند سمت چپ بیاد */
+  .brand{ text-align: right; }
+
+  /* منوی بازشونده تمام عرض */
+  #mainNav{
+    width: 100%;
+    margin-top: 10px;
+  }
+}
 
 
   </style>
