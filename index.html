@@ -233,11 +233,92 @@
     a{text-decoration:none;color:inherit}
     .container{width:min(1100px,100% - 40px);margin:0 auto}
 
-    header{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid #e5e7eb;z-index:10}
-    header .container{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px}
-    .brand{display:flex;flex-direction:column;gap:2px}
-    .brand .name{font-weight:900;font-size:18px}
-    .brand .title{font-size:12px;color:#6b7280}
+/* ===== Header Layout ===== */
+header{
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 1000;
+}
+
+.head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+}
+
+/* Brand */
+.brand{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 180px;
+}
+
+.brand .name{
+  font-size: 18px;
+  font-weight: 900;
+  color: #111827;
+}
+
+.brand .role{
+  font-size: 12px;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+/* Navigation (Desktop) */
+#mainNav{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+#mainNav a{
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  padding: 4px 2px;
+  position: relative;
+  transition: color .2s ease;
+}
+
+#mainNav a::after{
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #2563eb;
+  transition: width .25s ease;
+}
+
+#mainNav a:hover{
+  color: #2563eb;
+}
+
+#mainNav a:hover::after{
+  width: 100%;
+}
+
+/* Hamburger */
+.menu-btn{
+  display: none;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
     /* منوی بالا – نسخه واضح و حرفه‌ای */
 nav a{
   position: relative;
@@ -759,6 +840,43 @@ li{
     border:1px solid #e5e7eb;
     background:#f8fafc;
     opacity:1;
+  }
+}
+@media (max-width: 860px){
+
+  .head{
+    flex-wrap: wrap;
+  }
+
+  .menu-btn{
+    display: inline-flex;
+    align-items: center;
+  }
+
+  #mainNav{
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 12px;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(2,6,23,.08);
+  }
+
+  #mainNav.open{
+    display: flex;
+  }
+
+  #mainNav a{
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    font-size: 15px;
   }
 }
 
