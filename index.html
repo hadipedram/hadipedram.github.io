@@ -231,7 +231,16 @@
   font-family: "Vazirmatn", system-ui, -apple-system, "Segoe UI", sans-serif;
 ;background:#f3f4f6;color:#111827;line-height:1.85}
     a{text-decoration:none;color:inherit}
-    .container{width:min(1100px,100% - 40px);margin:0 auto}
+  .container{
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 20px;
+}
+@media (max-width: 860px){
+  .container{ padding:0 12px; }
+}
+html, body{ width:100%; overflow-x:hidden; }
 
 /* ===== Header (Clean) ===== */
 
@@ -740,6 +749,9 @@ header{ position:sticky; top:0; z-index:1000; background:rgba(255,255,255,.96); 
     padding-right:0 !important;
   }
 }
+@media (max-width: 860px){
+  .hero-grid{ grid-template-columns:1fr !important; }
+}
 
 
   </style>
@@ -837,7 +849,7 @@ header{ position:sticky; top:0; z-index:1000; background:rgba(255,255,255,.96); 
   </div>
 </section>
 
-    </div>
+
     <section id="statement" class="section-alt">
   <div class="container">
     <h2 class="section-title">بیانیه حرفه‌ای مشاور مدرسه</h2>
