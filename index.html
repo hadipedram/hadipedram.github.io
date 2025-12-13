@@ -1113,6 +1113,67 @@ input:focus,select:focus,textarea:focus{
     padding:6px 12px;
   }
 }
+/* ===== HERO WIDTH & SPACING FIX ===== */
+
+/* خود سکشن هیرو تمام عرض */
+.hero{
+  width: 100%;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* کانتینر داخل هیرو */
+.hero .container{
+  max-width: 1200px;      /* کمی بازتر از بقیه */
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* دسکتاپ بزرگ */
+@media (min-width: 1200px){
+  .hero .container{
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/* موبایل */
+@media (max-width: 600px){
+  .hero .container{
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+header{
+  margin-bottom: 0;
+}
+
+.hero{
+  padding-top: 36px;
+}
+/* ===== HERO FULL-WIDTH FIX (NO "تو دار") ===== */
+.hero{ padding-left:0 !important; padding-right:0 !important; }
+
+/* بک‌گراند هرو تمام عرض */
+.hero-wrap{
+  width:100%;
+  background: radial-gradient(circle at top,#0f3d2e,#020617);
+}
+
+/* محتوای داخل هرو مثل بقیه سایت مرتب بمونه */
+.hero-wrap .container{
+  width:min(1200px, 100% - 24px); /* حاشیه کمتر از قبل */
+  margin:0 auto;
+}
+
+/* موبایل */
+@media (max-width:600px){
+  .hero-wrap .container{
+    width:calc(100% - 16px);
+  }
+}
+header{ margin-bottom:0 !important; }
+.hero{ margin-top:0 !important; }
 
   </style>
 </head>
@@ -1170,8 +1231,10 @@ input:focus,select:focus,textarea:focus{
 </div>
 
   <!-- HERO -->
-  <section class="hero">
-  <div class="container hero-grid">
+ <section class="hero">
+  <div class="hero-wrap">
+    <div class="container hero-grid">
+
 
     <!-- متن اصلی -->
     <div>
@@ -1223,8 +1286,10 @@ input:focus,select:focus,textarea:focus{
       </div>
     </aside>
 
+     </div>
   </div>
 </section>
+
 
 
     <section id="statement" class="section-alt">
