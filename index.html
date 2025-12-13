@@ -319,47 +319,19 @@ header{
   cursor: pointer;
 }
 
-    /* منوی بالا – نسخه واضح و حرفه‌ای */
-nav a{
-  position: relative;
-  font-size: 14px;
-  font-weight: 600;          /* بولد */
-  color: #111827;            /* تیره و خوانا */
-  padding: 6px 2px;
-  transition: color 0.2s ease;
+.menu-btn{
+  display:none;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  border-radius:12px;
+  padding:8px 12px;
+  font-size:20px;
+  font-weight:800;
+  cursor:pointer;
+  position:relative;
+  z-index:9999;
 }
 
-/* خط زیر لینک */
-nav a::after{
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: -4px;
-  width: 0;
-  height: 2px;
-  background: #2563eb;       /* آبی رسمی */
-  transition: width 0.25s ease;
-}
-
-/* حالت hover */
-nav a:hover{
-  color: #2563eb;
-}
-
-nav a:hover::after{
-  width: 100%;
-}
-
-/* لینک فعال (بخش فعلی صفحه) */
-nav a.active{
-  color: #2563eb;
-}
-
-nav a.active::after{
-  width: 100%;
-}
-
-    nav{display:flex;flex-wrap:wrap;gap:14px}
 
 
     .hero{background:radial-gradient(circle at top,#1f2937,#020617);color:#e5e7eb;padding:72px 0 56px}
@@ -1566,6 +1538,29 @@ li{
     <div class="container">© 2025 - هادی پدرام | وب‌سایت رسمی آموزش و مشاوره</div>
   </footer>
 
-  
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("menuBtn");
+  const mainNav = document.getElementById("mainNav");
+  if (!menuBtn || !mainNav) return;
+
+  menuBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    mainNav.classList.toggle("open");
+    menuBtn.textContent = mainNav.classList.contains("open") ? "✕" : "☰";
+  });
+
+  mainNav.addEventListener("click", (e) => e.stopPropagation());
+
+  document.addEventListener("click", () => {
+    if (window.innerWidth <= 860) {
+      mainNav.classList.remove("open");
+      menuBtn.textContent = "☰";
+    }
+  });
+});
+</script>
+
 </body>
 </html>
