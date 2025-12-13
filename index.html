@@ -733,6 +733,16 @@ li{
     border:1px solid #e5e7eb;
   }
 }
+/* Make hamburger always clickable on mobile */
+.menu-btn{
+  position: relative;
+  z-index: 9999;
+  pointer-events: auto;
+}
+#mainNav{
+  position: relative;
+  z-index: 9998;
+}
 
   </style>
 </head>
@@ -740,12 +750,30 @@ li{
   document.addEventListener("DOMContentLoaded", () => {
     const menuBtn = document.getElementById("menuBtn");
     const mainNav = document.getElementById("mainNav");
-    if(!menuBtn || !mainNav) return;
 
-    menuBtn.addEventListener("click", () => {
+    if (!menuBtn || !mainNav) return;
+
+    // برای اطمینان: قبلاً handler تکراری وصل نشده باشد
+    menuBtn.replaceWith(menuBtn.cloneNode(true));
+    const btn = document.getElementById("menuBtn");
+
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       mainNav.classList.toggle("open");
-      menuBtn.textContent = mainNav.classList.contains("open") ? "✕" : "⋯";
+      btn.textContent = mainNav.classList.contains("open") ? "✕" : "☰";
     });
+
+    // کلیک بیرون = بسته شود
+    document.addEventListener("click", () => {
+      if (window.innerWidth <= 860) {
+        mainNav.classList.remove("open");
+        btn.textContent = "☰";
+      }
+    });
+
+    // کلیک داخل منو = بسته نشود
+    mainNav.addEventListener("click", (e) => e.stopPropagation());
   });
 </script>
 
