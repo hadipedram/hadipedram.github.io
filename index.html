@@ -747,6 +747,38 @@ li{
   position: relative;
   z-index: 9998;
 }
+@media (max-width: 860px){
+  .menu-btn{
+    display:inline-flex !important;
+    align-items:center;
+    gap:8px;
+    position: relative;
+    z-index: 9999;
+  }
+
+  #mainNav{
+    display:none !important;
+    width:100%;
+    flex-direction:column;
+    gap:8px;
+    margin-top:10px;
+    padding:10px;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    box-shadow:0 12px 24px rgba(2,6,23,.08);
+  }
+
+  #mainNav.open{ display:flex !important; }
+
+  #mainNav a{
+    width:100%;
+    padding:12px 14px;
+    border-radius:12px;
+    border:1px solid #e5e7eb;
+    background:#f8fafc;
+  }
+}
 
   </style>
 </head>
@@ -782,7 +814,7 @@ li{
 </script>
 
 <body>
-
+ <header id="header">...</header>
   <div class="whatsapp-wrapper">
     <span class="whatsapp-tooltip">پیام در واتساپ</span>
     <a href="https://wa.me/989044983371" class="whatsapp-float" target="_blank" rel="noopener">💬</a>
@@ -1511,74 +1543,29 @@ li{
   </footer>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuBtn = document.getElementById("menuBtn");
-    const mainNav = document.getElementById("mainNav");
-    if(!menuBtn || !mainNav) return;
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("menuBtn");
+  const mainNav = document.getElementById("mainNav");
+  if (!menuBtn || !mainNav) return;
 
-    menuBtn.addEventListener("click", () => {
-      mainNav.classList.toggle("open");
-      menuBtn.textContent =
-        mainNav.classList.contains("open") ? "✕" : "☰";
-    });
+  menuBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    mainNav.classList.toggle("open");
+    menuBtn.textContent = mainNav.classList.contains("open") ? "✕" : "☰";
   });
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuBtn = document.getElementById("menuBtn");
-    const mainNav = document.getElementById("mainNav");
-    if (!menuBtn || !mainNav) return;
 
-    // کلیک روی دکمه = باز/بسته
-    menuBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();     // مهم: جلوگیری از بسته شدن فوری توسط کلیک‌های کلی
-      mainNav.classList.toggle("open");
-      menuBtn.textContent = mainNav.classList.contains("open") ? "✕" : "☰";
-    });
+  // کلیک داخل منو => بسته نشود
+  mainNav.addEventListener("click", (e) => e.stopPropagation());
 
-    // کلیک داخل منو = بسته نشود
-    mainNav.addEventListener("click", (e) => e.stopPropagation());
-
-    // کلیک بیرون = بسته شود
-    document.addEventListener("click", () => {
-      if (window.innerWidth <= 860) {
-        mainNav.classList.remove("open");
-        menuBtn.textContent = "☰";
-      }
-    });
-
-    // تغییر سایز صفحه (چرخش موبایل) => منو بسته شود
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 860) {
-        mainNav.classList.remove("open");
-        menuBtn.textContent = "☰";
-      }
-    });
+  // کلیک بیرون => بسته شود
+  document.addEventListener("click", () => {
+    if (window.innerWidth <= 860) {
+      mainNav.classList.remove("open");
+      menuBtn.textContent = "☰";
+    }
   });
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuBtn = document.getElementById("menuBtn");
-    const mainNav = document.getElementById("mainNav");
-    if (!menuBtn || !mainNav) return;
-
-    menuBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      mainNav.classList.toggle("open");
-      menuBtn.textContent = mainNav.classList.contains("open") ? "✕" : "☰";
-    });
-
-    mainNav.addEventListener("click", (e) => e.stopPropagation());
-
-    document.addEventListener("click", () => {
-      if (window.innerWidth <= 860) {
-        mainNav.classList.remove("open");
-        menuBtn.textContent = "☰";
-      }
-    });
-  });
+});
 </script>
 
 
