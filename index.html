@@ -1538,6 +1538,62 @@ header {
   border-radius:999px;
 }
 
+/* تنظیمات Flexbox برای قرارگیری کارت‌ها */
+.two-col {
+  display: flex;
+  gap: 18px; /* فاصله بین کارت‌ها */
+  flex-wrap: wrap; /* اجازه می‌دهیم کارت‌ها به خط بعدی بروند */
+}
+
+.card {
+  flex: 1 1 calc(50% - 18px); /* کارت‌ها دو در یک ردیف قرار می‌گیرند */
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, .05);
+  margin-bottom: 20px;
+}
+
+/* تنظیمات برای صفحه‌های موبایل */
+@media (max-width: 860px) {
+  .two-col {
+    flex-direction: column; /* کارت‌ها در یک ستون قرار می‌گیرند */
+  }
+  
+  .card {
+    flex: 1 1 100%; /* کارت‌ها تمام عرض صفحه را می‌گیرند */
+    margin-bottom: 18px; /* فاصله کارت‌ها */
+  }
+}
+.card h3 {
+  font-size: 16px;
+  margin-bottom: 10px; /* فاصله بیشتر */
+  color: #111827; /* رنگی که قابل‌مشاهده است */
+}
+
+.card p {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 8px; /* فاصله بین پاراگراف‌ها */
+}
+.card {
+  padding: 20px 18px;
+  margin-bottom: 20px; /* فاصله پایین هر کارت */
+}
+/* تنظیمات گرید برای بخش‌ها */
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+/* برای موبایل */
+@media (max-width: 860px) {
+  .two-col {
+    grid-template-columns: 1fr; /* هر کارت یک ستون در موبایل */
+  }
+}
 
   </style>
 </head>
