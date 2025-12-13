@@ -1249,6 +1249,295 @@ html, body{
   overflow:hidden;
   text-overflow:ellipsis;
 }
+/* ===== HEADER: NO OVERLAP (MOBILE + DESKTOP) ===== */
+.head{
+  display:grid !important;
+  grid-template-columns: auto 1fr;
+  gap:12px;
+  align-items:center;
+  grid-template-areas: "brand nav";   /* برای دسکتاپ */
+}
+
+/* DESKTOP */
+@media (min-width: 861px){
+  .head{
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "brand nav";
+  }
+  .brand{
+    grid-area: brand;
+    text-align:right;   /* تنظیم برند به راست */
+  }
+  #mainNav{
+    grid-area: nav;
+    display:flex;
+    justify-content:flex-end;   /* منو سمت راست */
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .menu-btn{
+    display:none !important;   /* مخفی کردن منوی موبایل در دسکتاپ */
+  }
+}
+
+/* MOBILE */
+@media (max-width: 860px){
+  .head{
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "btn brand"
+      "nav nav";
+  }
+
+  .menu-btn{
+    grid-area: btn;
+    display:inline-flex !important;
+    justify-self:start;  /* منو سمت چپ در موبایل */
+    align-items:center;
+  }
+
+  .brand{
+    grid-area: brand;
+    min-width:0;
+    text-align:right;
+  }
+
+  #mainNav{
+    grid-area: nav;
+    width:100%;
+  }
+}
+
+/* prevent any squeeze/overlap in brand text */
+.brand .role{
+  max-width:100%;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+/* هدر */
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+/* گرید برای هدر */
+.head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+/* برند */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: right;
+}
+
+/* منو */
+#mainNav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  align-items: center;
+}
+
+/* دکمه همبرگر */
+.menu-btn {
+  display: none;
+  font-size: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* نمایش منو برای موبایل */
+@media (max-width: 860px) {
+  .head {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "brand btn" "nav nav";
+  }
+
+  .brand {
+    grid-area: brand;
+  }
+
+  .menu-btn {
+    display: inline-flex;
+    grid-area: btn;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+  }
+
+  #mainNav {
+    display: none;
+    grid-area: nav;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+    padding: 16px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+  }
+
+  #mainNav.open {
+    display: flex;
+  }
+
+  #mainNav a {
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background: #f8fafc;
+  }
+}
+/* منوی هدر */
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 1000;
+  padding: 12px 0;
+}
+
+/* گرید برای هدر */
+.head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+
+/* برند */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: right;
+}
+
+/* منو */
+#mainNav {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  align-items: center;
+}
+
+/* دکمه همبرگر */
+.menu-btn {
+  display: none;
+  font-size: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* نمایش منو برای موبایل */
+@media (max-width: 860px) {
+  .head {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "brand btn" "nav nav";
+  }
+
+  .brand {
+    grid-area: brand;
+  }
+
+  .menu-btn {
+    display: inline-flex;
+    grid-area: btn;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+  }
+
+  #mainNav {
+    display: none;
+    grid-area: nav;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+    padding: 16px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+  }
+
+  #mainNav.open {
+    display: flex;
+  }
+
+  #mainNav a {
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background: #f8fafc;
+  }
+}
+
+/* موبایل: منو کامل عرض */
+@media (max-width: 860px) {
+  #mainNav {
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #mainNav a {
+    padding: 12px 16px;
+    border-radius: 12px;
+    background-color: #f3f4f6;
+  }
+
+  #mainNav a:hover {
+    background-color: #e5e7eb;
+  }
+}
+.hero-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:12px;
+}
+
+.badge-item{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 14px;
+  font-size:13px;
+  font-weight:700;
+  background:#ecfdf5;
+  color:#065f46;
+  border:1px solid #a7f3d0;
+  border-radius:999px;
+}
+
 
   </style>
 </head>
@@ -1256,19 +1545,7 @@ html, body{
 
 <body>
 
-  <span class="badge-item">
-    <span class="icon">🎓</span>
-    مشاور مدرسه
-  </span>
-  <span class="badge-item">
-    <span class="icon">📘</span>
-    مشاوره تحصیلی
-  </span>
-  <span class="badge-item">
-    <span class="icon">👨‍🎓</span>
-    مشاور دانش‌آموزان
-  </span>
-</div>
+
 
   <div class="whatsapp-wrapper">
     <span class="whatsapp-tooltip">پیام در واتساپ</span>
@@ -1319,6 +1596,11 @@ html, body{
       </span>
 <h1>مشاوره تحصیلی رسمی و پیگیری‌محور</h1>
 <p>ویژه متوسطه اول و دوم — اهر | برنامه‌ریزی، مطالعه، انگیزه و تربیتی</p>
+<div class="hero-badges">
+  <span class="badge-item"><span class="icon">🎓</span> مشاور مدرسه</span>
+  <span class="badge-item"><span class="icon">📘</span> مشاوره تحصیلی</span>
+  <span class="badge-item"><span class="icon">👨‍🎓</span> مشاور دانش‌آموزان</span>
+</div>
 
 
       <div class="hero-actions">
