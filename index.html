@@ -937,6 +937,78 @@ body{
   *{ transition:none !important; animation:none !important; scroll-behavior:auto !important; }
   .reveal{ opacity:1 !important; transform:none !important; }
 }
+/* ===== Green + Darker Theme (ADD AT END) ===== */
+:root{
+  --brand:#22c55e;     /* green */
+  --brand2:#16a34a;    /* darker green */
+  --accent:#10b981;    /* teal-green */
+  --ink:#0b1220;
+}
+
+/* پس‌زمینه کلی کمی تیره‌تر + هاله سبز */
+body{
+  background:
+    radial-gradient(900px 600px at 80% 10%, rgba(34,197,94,.18), transparent 60%),
+    radial-gradient(900px 600px at 15% 25%, rgba(16,185,129,.14), transparent 60%),
+    #eef2f7;
+}
+
+/* Hero تیره‌تر و سبز-محور */
+.hero{
+  background:
+    radial-gradient(900px 520px at 80% 10%, rgba(34,197,94,.28), transparent 60%),
+    radial-gradient(900px 520px at 20% 25%, rgba(16,185,129,.22), transparent 58%),
+    linear-gradient(135deg, #070b14, #020617);
+}
+
+/* تیتر hero گرادیان سفید→سبز */
+.hero h1{
+  background: linear-gradient(90deg, #ffffff, rgba(34,197,94,.95));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+/* دکمه اصلی سبز گرادیانی */
+.btn-primary{
+  background: linear-gradient(90deg, var(--brand), var(--accent)) !important;
+  box-shadow: 0 14px 28px rgba(34,197,94,.22) !important;
+  border-color: transparent !important;
+}
+
+/* لینک‌ها و خط زیر منو (سبز) */
+#mainNav a:hover{ color: var(--brand) !important; }
+#mainNav a::after{ background: var(--brand) !important; }
+
+/* کارت‌های داخل hero شیشه‌ای‌تر + تیره‌تر */
+.hero .kpi, .hero-card{
+  background: rgba(255,255,255,.08) !important;
+  border: 1px solid rgba(255,255,255,.18) !important;
+}
+.hero .kpi:hover{
+  border-color: rgba(34,197,94,.45) !important;
+}
+
+/* نقل‌قول‌های Testimonials سبز بشه */
+.testimonial-card::before{ color: var(--brand) !important; }
+
+/* تمرکز فرم‌ها سبز */
+input:focus,select:focus,textarea:focus{
+  border-color: var(--brand) !important;
+  box-shadow: 0 0 0 2px rgba(34,197,94,.18) !important;
+}
+
+/* واتساپ کمی هماهنگ‌تر */
+.whatsapp-float{
+  background: var(--brand2) !important;
+}
+.whatsapp-float:hover{
+  background: #15803d !important;
+}
+/* optional: cards کمی تیره‌تر/کنتراست بیشتر */
+.card, .box, .testimonial-card{
+  box-shadow: 0 14px 34px rgba(2,6,23,.10) !important;
+}
 
   </style>
 </head>
