@@ -714,6 +714,10 @@ li{
   .menu-btn{ display:inline-flex !important; }
 
   #mainNav{ display:none !important; width:100%; }
+@media (max-width: 860px){
+  #mainNav{ display:none !important; width:100%; }
+  #mainNav.open{ display:flex !important; flex-direction:column; }
+}
 
   #mainNav.open{
     display:flex !important;
@@ -788,9 +792,7 @@ li{
 
   <!-- بقیه سکشن‌های سایت -->
 
-  <script>
-    /* اسکریپت منو */
-  </script>
+
 
 </body>
 </html>
@@ -1518,6 +1520,63 @@ li{
       mainNav.classList.toggle("open");
       menuBtn.textContent =
         mainNav.classList.contains("open") ? "✕" : "☰";
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menuBtn");
+    const mainNav = document.getElementById("mainNav");
+    if (!menuBtn || !mainNav) return;
+
+    // کلیک روی دکمه = باز/بسته
+    menuBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();     // مهم: جلوگیری از بسته شدن فوری توسط کلیک‌های کلی
+      mainNav.classList.toggle("open");
+      menuBtn.textContent = mainNav.classList.contains("open") ? "✕" : "☰";
+    });
+
+    // کلیک داخل منو = بسته نشود
+    mainNav.addEventListener("click", (e) => e.stopPropagation());
+
+    // کلیک بیرون = بسته شود
+    document.addEventListener("click", () => {
+      if (window.innerWidth <= 860) {
+        mainNav.classList.remove("open");
+        menuBtn.textContent = "☰";
+      }
+    });
+
+    // تغییر سایز صفحه (چرخش موبایل) => منو بسته شود
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 860) {
+        mainNav.classList.remove("open");
+        menuBtn.textContent = "☰";
+      }
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menuBtn");
+    const mainNav = document.getElementById("mainNav");
+    if (!menuBtn || !mainNav) return;
+
+    menuBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      mainNav.classList.toggle("open");
+      menuBtn.textContent = mainNav.classList.contains("open") ? "✕" : "☰";
+    });
+
+    mainNav.addEventListener("click", (e) => e.stopPropagation());
+
+    document.addEventListener("click", () => {
+      if (window.innerWidth <= 860) {
+        mainNav.classList.remove("open");
+        menuBtn.textContent = "☰";
+      }
     });
   });
 </script>
