@@ -234,124 +234,19 @@
     .container{width:min(1100px,100% - 40px);margin:0 auto}
 
 /* ===== Header (Clean) ===== */
-header{
-  position: sticky;
-  top: 0;
-  background: rgba(255,255,255,.96);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #e5e7eb;
-  z-index: 1000;
-}
 
-.head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  padding:14px 0;
-}
 
-.brand{
-  display:flex;
-  flex-direction:column;
-  gap:2px;
-  min-width:180px;
-}
 
-.brand .name{
-  font-size:18px;
-  font-weight:900;
-  color:#111827;
-}
 
-.brand .role{
-  font-size:12px;
-  color:#6b7280;
-  white-space:nowrap;
-}
 
 /* Desktop Nav */
-#mainNav{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  flex-wrap:wrap;
-}
 
-#mainNav a{
-  font-size:14px;
-  font-weight:600;
-  color:#111827;
-  padding:6px 2px;
-  position:relative;
-  transition:color .2s ease;
-}
-
-#mainNav a::after{
-  content:"";
-  position:absolute;
-  right:0;
-  bottom:-6px;
-  width:0;
-  height:2px;
-  background:#2563eb;
-  transition:width .25s ease;
-}
-
-#mainNav a:hover{ color:#2563eb; }
-#mainNav a:hover::after{ width:100%; }
 
 /* Hamburger */
-.menu-btn{
-  display:none;
-  border:1px solid #e5e7eb;
-  background:#fff;
-  border-radius:12px;
-  padding:8px 12px;
-  font-size:20px;
-  font-weight:800;
-  cursor:pointer;
-  position:relative;
-  z-index:9999;
-}
+
 
 /* Mobile Nav */
-@media (max-width: 860px){
-  .head{ flex-wrap:wrap; }
 
-  .menu-btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-  }
-
-  #mainNav{
-    display:none;
-    width:100%;
-    flex-direction:column;
-    gap:8px;
-    margin-top:12px;
-    padding:12px;
-    background:#ffffff;
-    border:1px solid #e5e7eb;
-    border-radius:16px;
-    box-shadow:0 12px 24px rgba(2,6,23,.08);
-  }
-
-  #mainNav.open{ display:flex; }
-
-  #mainNav a{
-    width:100%;
-    padding:12px 14px;
-    border-radius:12px;
-    border:1px solid #e5e7eb;
-    background:#f8fafc;
-  }
-
-  #mainNav a:hover{
-    background:#eff6ff;
-  }
-}
     .hero{background:radial-gradient(circle at top,#1f2937,#020617);color:#e5e7eb;padding:72px 0 56px}
     .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:start}
     .badge{display:inline-flex;gap:8px;align-items:center;font-size:12px;padding:6px 10px;border:1px solid rgba(229,231,235,.25);border-radius:999px;opacity:.95}
@@ -412,48 +307,16 @@ header{
 
     footer{padding:18px 0;text-align:center;font-size:12px;color:#6b7280;background:#f9fafb;border-top:1px solid #e5e7eb}
 
-    @media (max-width:900px){
-      .hero-grid,.contact-grid{grid-template-columns:1fr}
-    }
-    @media (max-width:640px){
-      header .container{flex-direction:column;align-items:flex-start}
-      .row{grid-template-columns:1fr}
-      nav{gap:10px}
-    }
+
     html{ scroll-behavior:smooth; }
 
 /* سایه هدر هنگام اسکرول */
-header.scrolled{
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-}
+
 
 /* دکمه همبرگر */
-.menu-btn{
-  display:none;
-  border:1px solid #e5e7eb;
-  background:#fff;
-  border-radius:12px;
-  padding:8px 10px;
-  cursor:pointer;
-  font-size:14px;
-  font-weight:700;
-  color:#111827;
-}
 
 
-@media (max-width: 520px){
-  .hero-actions .btn{
-    width:100%;
-    justify-content:center;
-  }
-    .hero-actions .btn{ width:100%; justify-content:center; padding:12px 16px; font-size:15px; }
 
-  .whatsapp-float{
-    width:60px;
-    height:60px;
-    font-size:28px;
-  }
-}
 /* جلوگیری از چسبیدن محتوا زیر هدر sticky */
 #top{ scroll-margin-top: 90px; }
 section{ scroll-margin-top: 90px; }
@@ -486,9 +349,7 @@ section{ scroll-margin-top: 90px; }
 
 .heroBullet strong{ color:#fff; }
 
-@media (max-width: 600px){
-  .hero h1{ font-size: 24px !important; }
-}
+
 /* بهبود ظاهری تایپوگرافی فارسی */
 h1, h2, h3{
   letter-spacing: -0.3px;
@@ -533,120 +394,19 @@ li{
   margin-bottom: 6px;
 }
 /* Mobile-first polish */
-@media (max-width: 600px){
 
-  .container{ width: min(1120px, 100% - 24px); }
 
-  /* هدر و منو */
-  .head{ padding: 10px 0; }
-  nav a{ padding: 10px 10px; font-size: 14px; }
 
-  /* Hero */
-  .hero{ padding: 28px 0 18px !important; }
-  .hero h1{ font-size: 22px !important; line-height: 1.5 !important; }
-  .hero p{ font-size: 14px !important; line-height: 2.05 !important; }
-
-  .ctaRow{ gap: 10px; }
-  .ctaRow .btn{
-    width: 100%;
-    justify-content: center;
-    padding: 12px 16px;
-    font-size: 15px;
-  }
-
-  /* کارت‌ها و سکشن‌ها */
-  section{ padding: 34px 0; }
-  .card{ padding: 16px; border-radius: 16px; }
-  .grid{ gap: 12px; }
-
-  /* رزومه/لیست‌ها */
-  .li{ padding: 10px 12px; }
-  .list{ gap: 10px; }
-
-  /* فرم تماس */
-  input, select, textarea{
-    padding: 12px 12px;
-    border-radius: 14px;
-    font-size: 15px;
-  }
-
-  /* واتساپ شناور */
-  .whatsappFloat{
-    width: 62px;
-    height: 62px;
-    font-size: 28px;
-    bottom: 14px;
-    right: 14px;
-  }
-}
-
-  #mainNav{
-    display:none;
-    width:100%;
-    flex-direction:column;
-    gap:8px;
-    padding:10px 0 0;
-  }
-
-  #mainNav.open{
-    display:flex;
-  }
-
-  #mainNav a{
-    width:100%;
-  }
-  
-  /* نمایش دکمه منو */
-  .menu-btn{
-    display: inline-flex !important;
-    align-items: center;
-    gap: 8px;
-  }
 
   /* منوی موبایل (وقتی باز می‌شود) */
-  header nav.open{
-    display: flex !important;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 10px;
-    gap: 6px;
-  }
 
-  header nav.open a{
-    width: 100%;
-    padding: 12px 14px;
-    border-radius: 12px;
-    background: #f1f5f9;
-    font-size: 15px;
-  }
+
 
 
 /* ===== Mobile Menu (FINAL) ===== */
 
 /* Mobile width fix: make layout use full width */
-@media (max-width: 600px){
-  html, body{ overflow-x:hidden; }
 
-  /* کانتینرها نزدیک لبه‌ها */
-  .container{
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-  }
-
-  /* اگر wrapper مرکزی داری (گاهی باعث باریک شدن می‌شود) */
-  .page, .wrap, .wrapper, .shell, main{
-    max-width: 100% !important;
-    width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-}
-@media (max-width: 600px){
-  body{ padding: 0 !important; }
-}
 /* سه کادر خدمات سریع در Hero */
 .hero .kpis{
   display:grid;
@@ -686,49 +446,116 @@ li{
 /* موبایل: ۳تا کادر زیر هم یا 2تایی */
 
 /* Mobile Menu - ONE clean version */
+
+/* ===== Header + Nav (FINAL CLEAN) ===== */
+header{
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 1000;
+}
+
+header.scrolled{
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+.head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:14px 0;
+  flex-wrap:nowrap;
+}
+
+.brand{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  min-width:180px;
+  flex:0 0 auto;
+}
+
+.brand .name{
+  font-size:18px;
+  font-weight:900;
+  color:#111827;
+}
+
+.brand .role{
+  font-size:12px;
+  color:#6b7280;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:420px;
+}
+
+/* Desktop Nav */
+#mainNav{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:flex-start;
+  white-space:nowrap;
+}
+
+#mainNav a{
+  font-size:14px;
+  font-weight:600;
+  color:#111827;
+  padding:8px 6px;
+  line-height:1;
+  border-radius:10px;
+  position:relative;
+  transition:color .2s ease, background .2s ease;
+}
+
+#mainNav a::after{
+  content:"";
+  position:absolute;
+  right:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:#2563eb;
+  transition:width .25s ease;
+}
+
+#mainNav a:hover{ color:#2563eb; }
+#mainNav a:hover::after{ width:100%; }
+
+/* Hamburger */
 .menu-btn{
   display:none;
   border:1px solid #e5e7eb;
   background:#fff;
   border-radius:12px;
-  padding:8px 10px;
-  cursor:pointer;
-  font-size:18px;
+  width:44px;
+  height:40px;
+  font-size:20px;
   font-weight:800;
-  color:#111827;
+  cursor:pointer;
   position:relative;
-  z-index:9999;
+  z-index:1001;
 }
 
-@media (max-width: 820px){
-  header .container{
-    flex-wrap:wrap;
-  }
+/* Mobile Nav */
+@media (max-width: 860px){
+  .head{ flex-wrap:wrap; }
 
   .menu-btn{
-    display:inline-flex !important;
+    display:inline-flex;
     align-items:center;
     justify-content:center;
-    width:44px;
-    height:40px;
   }
 
-  #mainNav{
-    display:none !important;
-    width:100%;
-    flex-direction:column;
-    gap:8px;
-    margin-top:10px;
-    padding:10px;
-    background:#fff;
-    border:1px solid #e5e7eb;
-    border-radius:16px;
-    box-shadow:0 12px 24px rgba(2,6,23,.08);
-  }
+  
 
-  #mainNav.open{
-    display:flex !important;
-  }
+  #mainNav.open{ display:flex; }
 
   #mainNav a{
     width:100%;
@@ -736,9 +563,15 @@ li{
     border-radius:12px;
     border:1px solid #e5e7eb;
     background:#f8fafc;
-    opacity:1;
+
   }
-} 
+
+  #mainNav a:hover{
+    background:#eff6ff;
+  }
+}
+
+
   </style>
 </head>
 
@@ -751,37 +584,8 @@ li{
   </div>
 
 
-
   <!-- بقیه سکشن‌های سایت -->
   
-<header id="header">
-  <div class="container head">
-
-    <div class="brand">
-      <div class="name">هادی پدرام</div>
-      <div class="role">دبیر رسمی آموزش و پرورش | مشاوره و راهنمایی</div>
-    </div>
-
-    <button class="menu-btn" id="menuBtn" aria-label="منو">☰</button>
-
-    <nav id="mainNav">
-      <a href="#services">خدمات</a>
-      <a href="#resume">رزومه</a>
-      <a href="#workshops">کارگاه‌ها</a>
-      <a href="#resources">منابع</a>
-      <a href="#statement">بیانیه حرفه‌ای</a>
-      <a href="guidence.html">راهنمایی تحصیلی</a>
-      <a href="#articles">یادداشت‌ها</a>
-       <a href="#faq">سوالات پرتکرار</a>
-      <a href="#contact">تماس</a>
-    </nav>
-
-  </div>
-</header>
-
-
-
-
   <!-- HERO -->
   <section class="hero">
   <div class="container hero-grid">
