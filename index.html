@@ -279,8 +279,7 @@ nav a.active::after{
 }
 
     nav{display:flex;flex-wrap:wrap;gap:14px}
-    nav a{font-size:13px;opacity:.82}
-    nav a:hover{opacity:1}
+
 
     .hero{background:radial-gradient(circle at top,#1f2937,#020617);color:#e5e7eb;padding:72px 0 56px}
     .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:start}
@@ -708,53 +707,32 @@ li{
 @media (max-width: 860px){
   .hero .kpis{ grid-template-columns: 1fr; }
 }
-@media (max-width: 860px){
-  header .head{ flex-wrap: wrap; }
-
-  .menu-btn{ display:inline-flex !important; }
-
-  #mainNav{ display:none !important; width:100%; }
-@media (max-width: 860px){
-  #mainNav{ display:none !important; width:100%; }
-  #mainNav.open{ display:flex !important; flex-direction:column; }
-}
-
-  #mainNav.open{
-    display:flex !important;
-    flex-direction:column;
-    gap:8px;
-    margin-top:10px;
-    padding:10px;
-    background:#fff;
-    border:1px solid #e5e7eb;
-    border-radius:16px;
-  }
-
-  #mainNav.open a{
-    width:100%;
-    padding:12px 14px;
-    border-radius:12px;
-    border:1px solid #e5e7eb;
-  }
-}
-/* Make hamburger always clickable on mobile */
+/* Mobile Menu - ONE clean version */
 .menu-btn{
-  position: relative;
-  z-index: 9999;
-  pointer-events: auto;
-}
-#mainNav{
-  position: relative;
-  z-index: 9998;
+  display:none;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  border-radius:12px;
+  padding:8px 10px;
+  cursor:pointer;
+  font-size:18px;
+  font-weight:800;
+  color:#111827;
+  position:relative;
+  z-index:9999;
 }
 
-@media (max-width: 860px){
+@media (max-width: 820px){
+  header .container{
+    flex-wrap:wrap;
+  }
+
   .menu-btn{
     display:inline-flex !important;
     align-items:center;
-    gap:8px;
-    position: relative;
-    z-index: 9999;
+    justify-content:center;
+    width:44px;
+    height:40px;
   }
 
   #mainNav{
@@ -770,7 +748,9 @@ li{
     box-shadow:0 12px 24px rgba(2,6,23,.08);
   }
 
-  #mainNav.open{ display:flex !important; }
+  #mainNav.open{
+    display:flex !important;
+  }
 
   #mainNav a{
     width:100%;
@@ -778,41 +758,13 @@ li{
     border-radius:12px;
     border:1px solid #e5e7eb;
     background:#f8fafc;
+    opacity:1;
   }
 }
 
   </style>
 </head>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuBtn = document.getElementById("menuBtn");
-    const mainNav = document.getElementById("mainNav");
 
-    if (!menuBtn || !mainNav) return;
-
-    // برای اطمینان: قبلاً handler تکراری وصل نشده باشد
-    menuBtn.replaceWith(menuBtn.cloneNode(true));
-    const btn = document.getElementById("menuBtn");
-
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      mainNav.classList.toggle("open");
-      btn.textContent = mainNav.classList.contains("open") ? "✕" : "☰";
-    });
-
-    // کلیک بیرون = بسته شود
-    document.addEventListener("click", () => {
-      if (window.innerWidth <= 860) {
-        mainNav.classList.remove("open");
-        btn.textContent = "☰";
-      }
-    });
-
-    // کلیک داخل منو = بسته نشود
-    mainNav.addEventListener("click", (e) => e.stopPropagation());
-  });
-</script>
 
 <body>
 
@@ -827,8 +779,6 @@ li{
 
 
 
-</body>
-</html>
 
 
 <header id="header">
@@ -1561,7 +1511,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // کلیک بیرون => بسته شود
   document.addEventListener("click", () => {
-    if (window.innerWidth <= 860) {
+    if (window.innerWidth <= 820) {
       mainNav.classList.remove("open");
       menuBtn.textContent = "☰";
     }
