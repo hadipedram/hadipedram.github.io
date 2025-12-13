@@ -708,9 +708,46 @@ li{
 @media (max-width: 860px){
   .hero .kpis{ grid-template-columns: 1fr; }
 }
+@media (max-width: 860px){
+  header .head{ flex-wrap: wrap; }
+
+  .menu-btn{ display:inline-flex !important; }
+
+  #mainNav{ display:none !important; width:100%; }
+
+  #mainNav.open{
+    display:flex !important;
+    flex-direction:column;
+    gap:8px;
+    margin-top:10px;
+    padding:10px;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+  }
+
+  #mainNav.open a{
+    width:100%;
+    padding:12px 14px;
+    border-radius:12px;
+    border:1px solid #e5e7eb;
+  }
+}
 
   </style>
 </head>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menuBtn");
+    const mainNav = document.getElementById("mainNav");
+    if(!menuBtn || !mainNav) return;
+
+    menuBtn.addEventListener("click", () => {
+      mainNav.classList.toggle("open");
+      menuBtn.textContent = mainNav.classList.contains("open") ? "✕" : "⋯";
+    });
+  });
+</script>
 
 <body>
 
@@ -719,22 +756,7 @@ li{
     <a href="https://wa.me/989044983371" class="whatsapp-float" target="_blank" rel="noopener">💬</a>
   </div>
 
-  <header id="header">
-    <div class="container head">
 
-      <div class="brand">
-        <div class="name">هادی پدرام</div>
-        <div class="role">دبیر رسمی آموزش و پرورش | مشاوره و راهنمایی</div>
-      </div>
-
-      <button class="menu-btn" id="menuBtn">☰ منو</button>
-
-      <nav id="mainNav">
-        ...
-      </nav>
-
-    </div>
-  </header>
 
   <!-- بقیه سکشن‌های سایت -->
 
@@ -754,7 +776,9 @@ li{
       <div class="role">دبیر رسمی آموزش و پرورش | مشاوره و راهنمایی</div>
     </div>
 
-    <button class="menu-btn" id="menuBtn" aria-label="باز و بسته کردن منو">☰ منو</button>
+    <button class="menu-btn" id="menuBtn" aria-label="باز و بسته کردن منو">
+      ☰
+    </button>
 
     <nav id="mainNav">
       <a href="#services">خدمات</a>
@@ -772,6 +796,7 @@ li{
 
   </div>
 </header>
+
 
 
   <!-- HERO -->
@@ -1455,37 +1480,20 @@ li{
     <div class="container">© 2025 - هادی پدرام | وب‌سایت رسمی آموزش و مشاوره</div>
   </footer>
 
- <script>
+<script>
   document.addEventListener("DOMContentLoaded", () => {
     const menuBtn = document.getElementById("menuBtn");
     const mainNav = document.getElementById("mainNav");
-
-    if (!menuBtn || !mainNav) return;
+    if(!menuBtn || !mainNav) return;
 
     menuBtn.addEventListener("click", () => {
       mainNav.classList.toggle("open");
-      menuBtn.textContent = mainNav.classList.contains("open") ? "✕ بستن" : "☰ منو";
-    });
-
-    mainNav.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        if (window.innerWidth <= 860){
-          mainNav.classList.remove("open");
-          menuBtn.textContent = "☰ منو";
-        }
-      });
-    });
-
-    // کلیک بیرون منو => بسته شود
-    document.addEventListener("click", (e) => {
-      const inside = mainNav.contains(e.target) || menuBtn.contains(e.target);
-      if (!inside && window.innerWidth <= 860){
-        mainNav.classList.remove("open");
-        menuBtn.textContent = "☰ منو";
-      }
+      menuBtn.textContent =
+        mainNav.classList.contains("open") ? "✕" : "☰";
     });
   });
 </script>
+
 
 </body>
 </html>
