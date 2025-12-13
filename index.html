@@ -776,11 +776,7 @@ li{
 
 
   <!-- بقیه سکشن‌های سایت -->
-
-
-
-
-
+  
 <header id="header">
   <div class="container head">
 
@@ -789,9 +785,7 @@ li{
       <div class="role">دبیر رسمی آموزش و پرورش | مشاوره و راهنمایی</div>
     </div>
 
-    <button class="menu-btn" id="menuBtn" aria-label="باز و بسته کردن منو">
-      ☰
-    </button>
+    <button class="menu-btn" id="menuBtn" aria-label="منو">☰</button>
 
     <nav id="mainNav">
       <a href="#services">خدمات</a>
@@ -800,15 +794,14 @@ li{
       <a href="#resources">منابع</a>
       <a href="#statement">بیانیه حرفه‌ای</a>
       <a href="guidence.html">راهنمایی تحصیلی</a>
-      <a href="#articles">یادداشت‌های آموزشی</a>
-      <a href="#faq">سوالات پرتکرار</a>
-      <a href="#testimonials">نظرات</a>
-      <a href="#add-review">ثبت نظر</a>
+      <a href="#articles">یادداشت‌ها</a>
+       <a href="#faq">سوالات پرتکرار</a>
       <a href="#contact">تماس</a>
     </nav>
 
   </div>
 </header>
+
 
 
 
@@ -1492,33 +1485,7 @@ li{
   <footer>
     <div class="container">© 2025 - هادی پدرام | وب‌سایت رسمی آموزش و مشاوره</div>
   </footer>
+
   
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const menuBtn = document.getElementById("menuBtn");
-  const mainNav = document.getElementById("mainNav");
-  if (!menuBtn || !mainNav) return;
-
-  menuBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    mainNav.classList.toggle("open");
-    menuBtn.textContent = mainNav.classList.contains("open") ? "✕" : "☰";
-  });
-
-  // کلیک داخل منو => بسته نشود
-  mainNav.addEventListener("click", (e) => e.stopPropagation());
-
-  // کلیک بیرون => بسته شود
-  document.addEventListener("click", () => {
-    if (window.innerWidth <= 820) {
-      mainNav.classList.remove("open");
-      menuBtn.textContent = "☰";
-    }
-  });
-});
-</script>
-
-
 </body>
 </html>
