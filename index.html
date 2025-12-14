@@ -1751,6 +1751,177 @@ header {
     transition: none !important;
   }
 }
+.countdown{
+  margin-top:10px;
+  font-size:13px;
+  color:#991b1b;
+  font-weight:700;
+}
+/* ===== Packages (FINAL) ===== */
+.price-wrap{ margin-top:10px; line-height:1.9; }
+.price-old{ color:#6b7280; text-decoration:line-through; font-size:13px; }
+.price-new{ color:#16a34a; font-weight:900; font-size:18px; }
+
+.pack-note{ font-size:12px; color:#64748b; margin-top:8px; }
+
+.badge-limit{
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:#dc2626;
+  color:#fff;
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:999px;
+  font-weight:800;
+}
+
+.badge-discount{
+  position:absolute;
+  top:14px;
+  right:14px;
+  background:#111827;
+  color:#fff;
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:999px;
+  font-weight:800;
+  opacity:.95;
+}
+
+.countdown{
+  margin-top:10px;
+  font-size:13px;
+  color:#991b1b;
+  font-weight:800;
+  background:#fef2f2;
+  border:1px solid #fecaca;
+  padding:8px 10px;
+  border-radius:12px;
+}
+/* ===== FIX: badges not overlap titles + show online payment on white cards ===== */
+
+/* کارت‌ها باید مرجع absolute باشند */
+#packages .card{
+  position: relative;
+  padding-top: 56px;   /* فضای کافی برای برچسب‌ها */
+}
+
+/* برچسب‌ها همیشه بالا و روی کارت */
+#packages .badge-limit,
+#packages .badge-discount{
+  z-index: 5;
+  top: 14px;
+}
+
+/* فاصله عنوان از برچسب‌ها (اگر لازم شد) */
+#packages .card h3{
+  margin-top: 0;
+}
+
+/* دکمه outline روی زمینه سفید باید تیره باشد */
+#packages .btn-outline{
+  background: #fff !important;
+  color: #111827 !important;
+  border-color: #d1d5db !important;
+}
+
+/* اگر خواستی دکمه پرداخت مثل واتساپ برجسته‌تر باشد */
+#packages .btn-outline:hover{
+  background:#f3f4f6 !important;
+}
+/* ===== Card-to-Card Modal ===== */
+.pay-modal{ position:fixed; inset:0; display:none; z-index:20000; }
+.pay-modal.show{ display:block; }
+
+.pay-modal__backdrop{
+  position:absolute; inset:0;
+  background:rgba(2,6,23,.55);
+  backdrop-filter: blur(3px);
+}
+
+.pay-modal__panel{
+  position:relative;
+  width:min(520px, calc(100% - 24px));
+  margin: 10vh auto;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  box-shadow:0 22px 60px rgba(0,0,0,.25);
+  overflow:hidden;
+}
+
+.pay-modal__header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 16px;
+  border-bottom:1px solid #e5e7eb;
+  background:#f8fafc;
+}
+
+.pay-modal__header h3{ margin:0; font-size:16px; color:#111827; }
+
+.pay-modal__close{
+  width:38px; height:38px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.pay-modal__body{ padding:14px 16px; }
+
+.pay-hint{ font-size:13px; color:#4b5563; margin-bottom:12px; }
+
+.pay-row{
+  display:grid;
+  grid-template-columns: 88px 1fr auto;
+  gap:10px;
+  align-items:center;
+  padding:10px 12px;
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  background:#ffffff;
+  margin-bottom:10px;
+}
+
+.pay-row:nth-child(3),
+.pay-row:nth-child(4){ grid-template-columns: 88px 1fr; }
+
+.pay-label{ font-size:12px; color:#6b7280; font-weight:700; }
+.pay-value{ font-size:14px; color:#111827; overflow-wrap:anywhere; }
+
+.pay-copy{
+  border-radius:12px;
+  padding:8px 12px;
+  font-size:13px;
+  border:1px solid #d1d5db;
+  background:#f3f4f6;
+  cursor:pointer;
+}
+.pay-copy:hover{ filter:brightness(0.98); }
+
+.pay-status{
+  margin-top:8px;
+  font-size:13px;
+  color:#065f46;
+  min-height: 20px;
+}
+
+.pay-modal__footer{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-start;
+  padding:14px 16px;
+  border-top:1px solid #e5e7eb;
+  background:#f8fafc;
+}
+
+@media (max-width:420px){
+  .pay-row{ grid-template-columns: 1fr; }
+  .pay-copy{ width:100%; }
+}
 
   </style>
 </head>
@@ -1813,6 +1984,7 @@ header {
   <span class="badge-item"><span class="icon">🎓</span> مشاور مدرسه</span>
   <span class="badge-item"><span class="icon">📘</span> مشاوره تحصیلی</span>
   <span class="badge-item"><span class="icon">👨‍🎓</span> مشاور دانش‌آموزان</span>
+  
 </div>
 
 
@@ -1925,6 +2097,7 @@ header {
   </section>
 
   <!-- SERVICES -->
+   
   <section id="services" class="section-alt">
     <div class="container">
       <h2 class="section-title">خدمات آموزش و مشاوره</h2>
@@ -1958,7 +2131,133 @@ header {
         </div>
       </div>
     </div>
-  </section>
+ 
+
+<section id="packages" class="section-alt">
+  <div class="container">
+    <h2 class="section-title">پکیج‌های کمک‌آموزشی</h2>
+    <p class="section-intro">برای ثبت‌نام، می‌توانید از طریق واتساپ پیام آماده ارسال کنید یا پرداخت آنلاین انجام دهید.</p>
+
+    <div class="cards">
+
+      <!-- Package 1 -->
+      <div class="card">
+        <span class="badge-limit">ظرفیت محدود</span>
+        <span class="badge-discount">٪20 تخفیف</span>
+
+        <h3>پکیج پایه</h3>
+        <p>مناسب شروع مسیر و ایجاد نظم مطالعه (متوسطه اول/دوم).</p>
+
+        <ul>
+          <li>برنامه هفتگی سبک و قابل اجرا</li>
+          <li>نکات مطالعه و مرور</li>
+          <li>پشتیبانی واتساپی محدود</li>
+        </ul>
+
+        <div class="price-wrap">
+          <div class="price-old">۱٬۲۰۰٬۰۰۰ تومان</div>
+          <div class="price-new">۹۶۰٬۰۰۰ تومان</div>
+        </div>
+
+        <div class="countdown" data-deadline="2025-03-25T23:59:59"></div>
+        <div class="pack-note">بعد از پایان تایمر، قیمت به حالت قبل برمی‌گردد.</div>
+
+        <div class="article-actions" style="margin-top:14px">
+          <a class="btn btn-primary"
+             target="_blank" rel="noopener"
+             href="https://wa.me/989044983371?text=سلام،%20برای%20«پکیج%20پایه»%20کمک‌آموزشی%20درخواست%20ثبت‌نام%20دارم.%0A%0Aپایه%20تحصیلی:%20...%0Aنام%20دانش‌آموز:%20...">
+            ثبت‌نام در واتساپ
+          </a>
+
+          <a class="btn btn-outline"
+             target="_blank" rel="noopener"
+             href="https://www.zarinpal.com/pg/XXXXXX-PACK1">
+            💳 پرداخت آنلاین
+          </a>
+        </div>
+      </div>
+
+      <!-- Package 2 -->
+      <div class="card">
+        <span class="badge-limit">ظرفیت محدود</span>
+        <span class="badge-discount">٪25 تخفیف</span>
+
+        <h3>پکیج استاندارد</h3>
+        <p>برای رشد پایدار و پیگیری منظم (مناسب اکثر دانش‌آموزان).</p>
+
+        <ul>
+          <li>برنامه‌ریزی دقیق هفتگی</li>
+          <li>پیگیری و اصلاح برنامه</li>
+          <li>راهنمایی مطالعه و آزمون</li>
+        </ul>
+
+        <div class="price-wrap">
+          <div class="price-old">۲٬۰۰۰٬۰۰۰ تومان</div>
+          <div class="price-new">۱٬۵۰۰٬۰۰۰ تومان</div>
+        </div>
+
+        <div class="countdown" data-deadline="2025-03-28T23:59:59"></div>
+        <div class="pack-note">ظرفیت این پکیج محدود است.</div>
+
+        <div class="article-actions" style="margin-top:14px">
+          <a class="btn btn-primary"
+             target="_blank" rel="noopener"
+             href="https://wa.me/989044983371?text=سلام،%20برای%20«پکیج%20استاندارد»%20کمک‌آموزشی%20درخواست%20ثبت‌نام%20دارم.%0A%0Aپایه%20تحصیلی:%20...%0Aنام%20دانش‌آموز:%20...%0Aمشکل%20اصلی:%20برنامه‌ریزی%20/%20انگیزه%20/%20تمرکز">
+            ثبت‌نام در واتساپ
+          </a>
+
+          <a class="btn btn-outline"
+             target="_blank" rel="noopener"
+             href="https://www.zarinpal.com/pg/XXXXXX-PACK2">
+            💳 پرداخت آنلاین
+          </a>
+        </div>
+      </div>
+
+      <!-- Package 3 -->
+      <div class="card">
+        <span class="badge-limit">ظرفیت محدود</span>
+        <span class="badge-discount">٪30 تخفیف</span>
+
+        <h3>پکیج ویژه (VIP)</h3>
+        <p>پیگیری جدی‌تر و جلسات بیشتر برای نتیجه سریع‌تر (متوسطه دوم).</p>
+
+        <ul>
+          <li>برنامه‌ریزی + تحلیل عملکرد</li>
+          <li>پیگیری نزدیک‌تر و دقیق‌تر</li>
+          <li>جلسات بیشتر / پشتیبانی قوی‌تر</li>
+        </ul>
+
+        <div class="price-wrap">
+          <div class="price-old">۳٬۲۰۰٬۰۰۰ تومان</div>
+          <div class="price-new">۲٬۲۴۰٬۰۰۰ تومان</div>
+        </div>
+
+        <div class="countdown" data-deadline="2025-04-02T23:59:59"></div>
+        <div class="pack-note">این پکیج فقط برای تعداد محدود پذیرش می‌شود.</div>
+
+        <div class="article-actions" style="margin-top:14px">
+          <a class="btn btn-primary"
+             target="_blank" rel="noopener"
+             href="https://wa.me/989044983371?text=سلام،%20برای%20«پکیج%20ویژه%20(VIP)»%20درخواست%20ثبت‌نام%20دارم.%0A%0Aپایه%20تحصیلی:%20...%0Aنام%20دانش‌آموز:%20...%0Aهدف:%20(مثلاً%20افزایش%20معدل%20/%20کنکور%20/%20امتحانات)">
+            ثبت‌نام در واتساپ
+          </a>
+
+          <a class="btn btn-outline"
+             target="_blank" rel="noopener"
+             href="https://www.zarinpal.com/pg/XXXXXX-PACK3">
+            💳 پرداخت آنلاین
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  </div>
+</section>
 
   <!-- RESUME -->
   <section id="resume">
@@ -1988,6 +2287,7 @@ header {
             <span class="tag">برنامه‌ریزی آموزشی</span>
             <span class="tag">ارتباط مدرسه–خانواده</span>
             <span class="tag">کارگاه آموزشی</span>
+            
           </div>
         </div>
 
@@ -2608,6 +2908,149 @@ document.querySelectorAll(".card, .box, section, .testimonial-card")
     observer.observe(el);
   });
 </script>
+<script>
+(function startCountdown(){
+  const pads = (n)=> (n<10 ? "0"+n : ""+n);
+
+  document.querySelectorAll(".countdown").forEach(el=>{
+    const end = new Date(el.dataset.deadline).getTime();
+
+    const tick = ()=>{
+      const now = Date.now();
+      const diff = end - now;
+
+      if(diff <= 0){
+        el.textContent = "مهلت تخفیف به پایان رسید";
+        return;
+      }
+
+      const d = Math.floor(diff / (1000*60*60*24));
+      const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+      const m = Math.floor((diff%(1000*60*60))/(1000*60));
+      const s = Math.floor((diff%(1000*60))/1000);
+
+      el.textContent = `⏳ ${d} روز ${pads(h)}:${pads(m)}:${pads(s)} تا پایان تخفیف`;
+    };
+
+    tick();
+    setInterval(tick, 1000);
+  });
+})();
+</script>
+<script>
+  // ===== Card-to-Card Modal Logic =====
+  const payModal = document.getElementById("payModal");
+  const copyCardBtn = document.getElementById("copyCardBtn");
+  const cardNumberEl = document.getElementById("cardNumber");
+  const payStatus = document.getElementById("payStatus");
+
+  function openPayModal(opts = {}){
+    // opts.card, opts.name, opts.packageName (اختیاری)
+    if(opts.card) cardNumberEl.textContent = opts.card;
+
+    // متن آماده واتساپ (اختیاری)
+    const pkg = opts.packageName ? `«${opts.packageName}»` : "پکیج";
+    const wa = document.getElementById("sendReceiptBtn");
+    wa.href = "https://wa.me/989044983371?text=" + encodeURIComponent(
+      `سلام، پرداخت کارت‌به‌کارت برای ${pkg} انجام شد. رسید را ارسال می‌کنم.`
+    );
+
+    payStatus.textContent = "";
+    payModal.classList.add("show");
+    payModal.setAttribute("aria-hidden","false");
+    document.body.style.overflow = "hidden"; // جلوگیری از اسکرول پشت
+  }
+
+  function closePayModal(){
+    payModal.classList.remove("show");
+    payModal.setAttribute("aria-hidden","true");
+    document.body.style.overflow = ""; // بازگشت اسکرول
+  }
+
+  // کلیک روی هر چیزی که data-close دارد => بستن
+  payModal.addEventListener("click", (e) => {
+    if(e.target && e.target.getAttribute("data-close") === "1"){
+      closePayModal();
+    }
+  });
+
+  // ESC => بستن
+  document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape" && payModal.classList.contains("show")){
+      closePayModal();
+    }
+  });
+
+  // کپی شماره کارت
+  if(copyCardBtn){
+    copyCardBtn.addEventListener("click", async () => {
+      const text = (cardNumberEl.textContent || "").trim();
+      try{
+        await navigator.clipboard.writeText(text);
+        payStatus.textContent = "✅ شماره کارت کپی شد.";
+      }catch(err){
+        // fallback برای مرورگرهای قدیمی‌تر
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+        payStatus.textContent = "✅ شماره کارت کپی شد.";
+      }
+    });
+  }
+
+  // این تابع را از دکمه‌های کارت‌ها صدا بزن
+  window.openPayModal = openPayModal;
+</script>
+
+<!-- Card-to-Card Modal -->
+<div class="pay-modal" id="payModal" aria-hidden="true">
+  <div class="pay-modal__backdrop" data-close="1"></div>
+
+  <div class="pay-modal__panel" role="dialog" aria-modal="true" aria-labelledby="payTitle">
+    <div class="pay-modal__header">
+      <h3 id="payTitle">پرداخت کارت‌به‌کارت</h3>
+      <button class="pay-modal__close" type="button" aria-label="بستن" data-close="1">✕</button>
+    </div>
+
+    <div class="pay-modal__body">
+      <p class="pay-hint">شماره کارت را کپی کنید و بعد از پرداخت، رسید را در واتساپ ارسال کنید.</p>
+
+      <div class="pay-row">
+        <div class="pay-label">شماره کارت</div>
+        <div class="pay-value" id="cardNumber" dir="ltr">6037-7990-0000-0000</div>
+        <button class="pay-copy" type="button" id="copyCardBtn">کپی</button>
+      </div>
+
+      <div class="pay-row">
+        <div class="pay-label">به نام</div>
+        <div class="pay-value">هادی پدرام</div>
+      </div>
+
+      <div class="pay-row">
+        <div class="pay-label">توضیح پرداخت</div>
+        <div class="pay-value">پکیج کمک‌آموزشی / نام دانش‌آموز</div>
+      </div>
+
+      <div class="pay-status" id="payStatus" aria-live="polite"></div>
+    </div>
+
+    <div class="pay-modal__footer">
+      <a
+        class="btn btn-primary"
+        id="sendReceiptBtn"
+        target="_blank"
+        rel="noopener"
+        href="https://wa.me/989044983371?text=سلام، پرداخت کارت‌به‌کارت انجام شد. رسید را ارسال می‌کنم.">
+        ارسال رسید در واتساپ
+      </a>
+
+      <button class="btn btn-outline" type="button" data-close="1">بستن</button>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
