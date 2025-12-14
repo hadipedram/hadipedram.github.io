@@ -2231,7 +2231,37 @@ header {
         </div>
       </div>
     </div>
- 
+ <section id="resources" class="section-alt">
+  <div class="container">
+    <h2 class="section-title">منابع و یادداشت‌های آموزشی</h2>
+    <p class="section-intro">
+      در این بخش، یادداشت‌ها و منابع کوتاه آموزشی درباره
+      <strong>مشاوره تحصیلی</strong>، <strong>مهارت مطالعه</strong>،
+      <strong>برنامه‌ریزی درسی</strong> و <strong>تربیتی</strong>
+      منتشر می‌شود.
+    </p>
+
+    <div class="cards">
+      <article class="card reveal">
+        <h3>چطور برنامه‌ریزی درسی مؤثر داشته باشیم؟</h3>
+        <p>
+          اصول برنامه‌ریزی هفتگی برای دانش‌آموزان متوسطه اول و دوم،
+          با تأکید بر پیگیری و اصلاح.
+        </p>
+        <small>برچسب‌ها: برنامه‌ریزی، متوسطه، مطالعه</small>
+      </article>
+
+      <article class="card reveal">
+        <h3>افزایش تمرکز هنگام مطالعه</h3>
+        <p>
+          راهکارهای ساده و قابل اجرا برای کاهش حواس‌پرتی و افزایش تمرکز.
+        </p>
+        <small>برچسب‌ها: تمرکز، مطالعه، دانش‌آموز</small>
+      </article>
+    </div>
+  </div>
+</section>
+
 
 <section id="packages" class="section-alt">
   <div class="container">
@@ -3383,6 +3413,33 @@ document.querySelectorAll(".card, .box, section, .testimonial-card")
       }
     });
   })();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+  emailjs.init("4f8jJR0RAh4URbxlv");
+})();
+
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  emailjs.send("service_jkr7wel", "template_4vgxyxx", {
+    fullName: this.fullName.value,
+    phone: this.phone.value,
+    email: this.email.value,
+    message: this.message.value
+  }).then(() => {
+    document.getElementById("contactNotice").className = "notice show ok";
+    document.getElementById("contactNotice").innerText =
+      "پیام شما با موفقیت ارسال شد ✅";
+    this.reset();
+  }, () => {
+    document.getElementById("contactNotice").className = "notice show err";
+    document.getElementById("contactNotice").innerText =
+      "خطا در ارسال پیام ❌";
+  });
+});
 </script>
 
 </body>
