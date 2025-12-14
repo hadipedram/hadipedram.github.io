@@ -1922,6 +1922,106 @@ header {
   .pay-row{ grid-template-columns: 1fr; }
   .pay-copy{ width:100%; }
 }
+/* ===== Pay Modal (Pro) ===== */
+.pay-modal{ position:fixed; inset:0; display:none; z-index:20000; }
+.pay-modal.open{ display:block; }
+
+.pay-backdrop{
+  position:absolute; inset:0;
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(3px);
+}
+
+.pay-dialog{
+  position:relative;
+  width:min(520px, calc(100% - 24px));
+  margin: 8vh auto 0;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+  padding:18px 16px 14px;
+  direction: rtl;
+}
+
+.pay-x{
+  position:absolute;
+  top:10px; left:10px;
+  width:36px; height:36px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.pay-title{ font-size:16px; font-weight:900; color:#111827; margin-bottom:6px; }
+.pay-sub{ font-size:13px; color:#6b7280; margin-bottom:14px; }
+
+.pay-row{
+  display:grid;
+  grid-template-columns: 90px 1fr auto;
+  gap:10px;
+  align-items:center;
+  padding:10px 12px;
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  background:#f8fafc;
+  margin-bottom:10px;
+}
+
+.pay-label{ font-size:12px; color:#6b7280; }
+.pay-value{ font-size:13px; font-weight:800; color:#111827; overflow-wrap:anywhere; }
+
+.pay-copy{
+  border-radius:12px;
+  padding:8px 12px;
+  border:1px solid #22c55e;
+  background:#22c55e;
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.pay-actions{
+  display:flex;
+  gap:10px;
+  margin-top:12px;
+  flex-wrap:wrap;
+}
+
+.pay-wa{
+  flex:1 1 auto;
+  text-align:center;
+  padding:12px 14px;
+  border-radius:14px;
+  background: linear-gradient(90deg,#22c55e,#10b981);
+  color:#fff;
+  font-weight:900;
+}
+
+.pay-close{
+  flex:0 0 auto;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.pay-toast{
+  margin-top:10px;
+  font-size:12px;
+  color:#065f46;
+  display:none;
+}
+
+.pay-toast.show{ display:block; }
+
+@media (max-width:420px){
+  .pay-row{ grid-template-columns: 84px 1fr auto; }
+}
 
   </style>
 </head>
@@ -2977,8 +3077,7 @@ document.querySelectorAll(".card, .box, section, .testimonial-card")
     );
 
     payStatus.textContent = "";
-    payModal.classList.add("show");
-    payModal.setAttribute("aria-hidden","false");
+    payModal.classList.add("show"); 
     document.body.style.overflow = "hidden"; // جلوگیری از اسکرول پشت
   }
 
@@ -3034,7 +3133,7 @@ document.querySelectorAll(".card, .box, section, .testimonial-card")
 </script>
 
 <!-- Card-to-Card Modal -->
-<div class="pay-modal" id="payModal" aria-hidden="true">
+<div class="pay-modal" id="payModal">
   <div class="pay-modal__backdrop" data-close="1"></div>
 
   <div class="pay-modal__panel" role="dialog" aria-modal="true" aria-labelledby="payTitle">
@@ -3048,7 +3147,7 @@ document.querySelectorAll(".card, .box, section, .testimonial-card")
 
       <div class="pay-row">
         <div class="pay-label">شماره کارت</div>
-        <div class="pay-value" id="cardNumber" dir="ltr">6037-7990-0000-0000</div>
+        <div class="pay-value" id="cardNumber" dir="ltr">6037-7990-1234-5678</div>
         <button class="pay-copy" type="button" id="copyCardBtn">کپی</button>
       </div>
 
@@ -3106,10 +3205,15 @@ document.querySelectorAll(".card, .box, section, .testimonial-card")
     </div>
   </div>
 </div>
+<button type="button" class="btn btn-outline"
+  onclick="openPayModal({ card:'6037-7990-1234-5678', packageName:'پکیج VIP' })">
+  💳 کارت‌به‌کارت
+</button>
 
 <script>
   // ===== Modal functions =====
   function openPayModal({ card, packageName }) {
+    
     const modal = document.getElementById("payModal");
     const cardEl = document.getElementById("payCard");
     const pkgEl  = document.getElementById("payPkg");
@@ -3148,6 +3252,137 @@ document.querySelectorAll(".card, .box, section, .testimonial-card")
     if(!modal || modal.style.display !== "flex") return;
     if(e.target === modal) closePayModal();
   });
+</script>
+
+<!-- Pay Modal -->
+<div class="pay-modal" id="payModal">
+  <div class="pay-backdrop" data-close="1"></div>
+
+  <div class="pay-dialog" role="dialog" aria-modal="true" aria-labelledby="payTitle">
+    <button class="pay-x" type="button" aria-label="بستن" data-close="1">×</button>
+
+    <h3 id="payTitle" class="pay-title">پرداخت کارت‌به‌کارت</h3>
+    <p class="pay-sub" id="paySub">شماره کارت را کپی کنید و رسید را ارسال کنید.</p>
+
+    <div class="pay-row">
+      <div class="pay-label">شماره کارت</div>
+      <div class="pay-value" id="payCard">—</div>
+      <button class="pay-copy" type="button" id="copyCardBtn">کپی</button>
+    </div>
+
+    <div class="pay-row">
+      <div class="pay-label">نام صاحب کارت</div>
+      <div class="pay-value" id="payOwner">هادی پدرام</div>
+      <span></span>
+    </div>
+
+    <div class="pay-row">
+      <div class="pay-label">عنوان پکیج</div>
+      <div class="pay-value" id="payPkg">—</div>
+      <span></span>
+    </div>
+
+    <div class="pay-actions">
+      <a class="pay-wa" id="payWhatsapp" target="_blank" rel="noopener">ارسال رسید در واتساپ</a>
+      <button class="pay-close" type="button" data-close="1">بستن</button>
+    </div>
+
+    <div class="pay-toast" id="payToast" aria-live="polite"></div>
+  </div>
+</div>
+<script>
+  (function(){
+    const modal = document.getElementById("payModal");
+    const cardEl = document.getElementById("payCard");
+    const pkgEl  = document.getElementById("payPkg");
+    const waEl   = document.getElementById("payWhatsapp");
+    const copyBtn= document.getElementById("copyCardBtn");
+    const toast  = document.getElementById("payToast");
+
+    let lastFocus = null;
+
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add("show");
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(()=>toast.classList.remove("show"), 1600);
+    }
+
+    function lockScroll(lock){
+      document.documentElement.style.overflow = lock ? "hidden" : "";
+      document.body.style.overflow = lock ? "hidden" : "";
+    }
+
+    function buildWaText(packageName, card){
+      const txt =
+`سلام وقت بخیر
+برای پکیج «${packageName}» پرداخت کارت‌به‌کارت انجام دادم.
+شماره کارت: ${card}
+رسید پرداخت: (اینجا عکس/فایل رسید را ارسال می‌کنم)`;
+      return encodeURIComponent(txt);
+    }
+
+    window.openPayModal = function({card, packageName}){
+      if(!modal) return;
+
+      lastFocus = document.activeElement;
+
+      cardEl.textContent = card || "—";
+      pkgEl.textContent  = packageName || "—";
+
+      const wa = "https://wa.me/989044983371?text=" + buildWaText(packageName || "پکیج", card || "");
+      waEl.setAttribute("href", wa);
+
+      modal.classList.add("open");
+      lockScroll(true);
+
+      // فوکوس امن
+      setTimeout(()=> copyBtn?.focus(), 0);
+    }
+
+    window.closePayModal = function(){
+      if(!modal) return;
+
+      modal.classList.remove("open");
+      lockScroll(false);
+
+      if(lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+    }
+
+    // بستن با کلیک روی هر چیزی که data-close دارد
+    modal?.addEventListener("click", (e) => {
+      if(e.target && e.target.getAttribute("data-close") === "1"){
+        window.closePayModal();
+      }
+    });
+
+    // ESC برای بستن
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape" && modal?.classList.contains("open")){
+        window.closePayModal();
+      }
+    });
+
+    // کپی شماره کارت
+    copyBtn?.addEventListener("click", async () => {
+      const text = (cardEl?.textContent || "").trim();
+      if(!text || text === "—") return;
+
+      try{
+        await navigator.clipboard.writeText(text);
+        showToast("شماره کارت کپی شد ✅");
+      }catch{
+        // fallback قدیمی
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+        showToast("شماره کارت کپی شد ✅");
+      }
+    });
+  })();
 </script>
 
 </body>
