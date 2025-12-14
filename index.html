@@ -1680,6 +1680,15 @@ header {
   cursor:pointer;
 }
 .notice .mini-btn:hover{ background:#f3f4f6; }
+.menu-btn{
+  position: relative;
+  z-index: 10001;
+}
+
+#mainNav{
+  position: relative;
+  z-index: 10000;
+}
 
   </style>
 </head>
@@ -2494,6 +2503,32 @@ header {
       btn.textContent = oldText;
     });
   });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("menuBtn");
+  const nav = document.getElementById("mainNav");
+
+  if (!menuBtn || !nav) return;
+
+  menuBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    nav.classList.toggle("open");
+  });
+
+  // کلیک بیرون منو => بسته شود
+  document.addEventListener("click", (e) => {
+    if (!nav.classList.contains("open")) return;
+    if (nav.contains(e.target) || menuBtn.contains(e.target)) return;
+    nav.classList.remove("open");
+  });
+
+  // کلیک روی لینک‌ها => بسته شود
+  nav.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => nav.classList.remove("open"));
+  });
+});
 </script>
 
 
