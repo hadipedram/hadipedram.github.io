@@ -1651,6 +1651,35 @@ header {
 @media (max-width: 860px){
   .two-col{ grid-template-columns: 1fr !important; }
 }
+.notice{
+  display:none;
+  margin-top:10px;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid #d1d5db;
+  background:#f9fafb;
+  font-size:13px;
+  line-height:1.9;
+  white-space:pre-wrap;
+}
+.notice.show{ display:block; }
+.notice.ok{ border-color:#86efac; background:#ecfdf5; color:#065f46; }
+.notice.err{ border-color:#fecaca; background:#fef2f2; color:#991b1b; }
+.notice .actions{
+  margin-top:10px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.notice .mini-btn{
+  border-radius:999px;
+  padding:8px 14px;
+  font-size:13px;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  cursor:pointer;
+}
+.notice .mini-btn:hover{ background:#f3f4f6; }
 
   </style>
 </head>
@@ -1995,6 +2024,7 @@ header {
           <h3>نمونه موضوع ۱</h3>
           <p>برنامه‌ریزی مطالعه در ۴ قدم (قابل تبدیل به مقاله/فایل PDF).</p>
           <small>به‌زودی</small>
+          
         </div>
         <div class="card">
           <h3>نمونه موضوع ۲</h3>
@@ -2267,8 +2297,9 @@ header {
           </div>
 
           <textarea id="rText" rows="5" placeholder="متن نظر شما (مختصر و محترمانه) *" required></textarea>
+<button class="btn btn-primary" type="submit">ارسال درخواست</button>
 
-          <button class="btn btn-primary" type="submit">ساخت متن و ارسال</button>
+
 
           <div class="notice" id="reviewNotice"></div>
         </form>
@@ -2341,11 +2372,7 @@ header {
             </div>
 
             <textarea id="message" rows="5" placeholder="شرح درخواست (مختصر و دقیق) *" required></textarea>
-
-            <div class="hint">
-              توجه: این فرم فعلاً پیام را ارسال نمی‌کند؛ بعداً می‌توانیم آن را به ایمیل/Google Form/Backend وصل کنیم.
-              فعلاً با زدن دکمه، یک «متن آماده» برای کپی کردن به شما می‌دهد.
-            </div>
+ 
 
             <button class="btn btn-primary" type="submit">ساخت متن درخواست</button>
 
@@ -2384,50 +2411,91 @@ header {
   <footer>
     <div class="container">© 2025 - هادی پدرام | وب‌سایت رسمی آموزش و مشاوره</div>
   </footer>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function () {
+    emailjs.init("4f8jJR0RAh4URbxlv");
+  })();
 
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const menuBtn = document.getElementById("menuBtn");
-  const mainNav = document.getElementById("mainNav");
-  if (!menuBtn || !mainNav) return;
+  const form = document.getElementById("contactForm");
+  const notice = document.getElementById("notice");
 
-  menuBtn.addEventListener("click", (e) => {
+  function showNotice(type, text){
+    notice.classList.remove("ok","err","show");
+    notice.classList.add("show", type);
+    notice.textContent = text;
+  }
+
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
-    e.stopPropagation();
-    mainNav.classList.toggle("open");
-    menuBtn.textContent = mainNav.classList.contains("open") ? "✕" : "☰";
-  });
 
-  mainNav.addEventListener("click", (e) => e.stopPropagation());
+    // (اختیاری) دکمه رو موقع ارسال غیرفعال کن
+    const btn = form.querySelector('button[type="submit"]');
+    const oldText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = "در حال ارسال...";
 
-  document.addEventListener("click", () => {
-    if (window.innerWidth <= 860) {
-      mainNav.classList.remove("open");
-      menuBtn.textContent = "☰";
-    }
+    emailjs.send("service_jkr7wel", "template_4vgxyxx", {
+      fullName: document.getElementById("fullName").value.trim(),
+      phone: document.getElementById("phone").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      requestType: document.getElementById("requestType").value,
+      audience: document.getElementById("audience").value,
+      preferred: document.getElementById("preferred").value,
+      message: document.getElementById("message").value.trim(),
+    })
+    .then(() => {
+      showNotice("ok", "درخواست شما با موفقیت ارسال شد ✅");
+      form.reset();
+    })
+    .catch(() => {
+      showNotice("err", "خطا در ارسال ❌ لطفاً دوباره تلاش کنید");
+    })
+    .finally(() => {
+      btn.disabled = false;
+      btn.textContent = oldText;
+    });
   });
-});
 </script>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+  const reviewForm = document.getElementById("reviewForm");
+  const reviewNotice = document.getElementById("reviewNotice");
 
-  // reveal sections on scroll
-  const els = document.querySelectorAll("section, footer, .card, .box, .testimonial-card");
-  els.forEach(el => el.classList.add("reveal"));
+  function showReviewNotice(type, text){
+    reviewNotice.classList.remove("ok","err","show");
+    reviewNotice.classList.add("show", type);
+    reviewNotice.textContent = text;
+  }
 
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.classList.add("show");
-        io.unobserve(e.target);
-      }
+  reviewForm.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const btn = reviewForm.querySelector("button[type='submit']");
+    const oldText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = "در حال ارسال...";
+
+    emailjs.send("service_jkr7wel", "template_4vgxyxx", {
+      role: document.getElementById("rRole").value,
+      level: document.getElementById("rLevel").value,
+      rate: document.getElementById("rRate").value,
+      city: document.getElementById("rCity").value,
+      text: document.getElementById("rText").value.trim()
+    })
+    .then(() => {
+      showReviewNotice("ok", "نظر شما با موفقیت ارسال شد 🌱");
+      reviewForm.reset();
+    })
+    .catch(() => {
+      showReviewNotice("err", "خطا در ارسال نظر ❌ لطفاً دوباره تلاش کنید");
+    })
+    .finally(() => {
+      btn.disabled = false;
+      btn.textContent = oldText;
     });
-  }, { threshold: 0.12 });
-
-  els.forEach(el => io.observe(el));
-
-});
+  });
 </script>
+
 
 </body>
 </html>
