@@ -3072,6 +3072,76 @@ document.querySelectorAll(".card, .box, section, .testimonial-card")
     </div>
   </div>
 </div>
+<!-- Pay Modal -->
+<div id="payModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:99999; align-items:center; justify-content:center;">
+  <div style="width:min(520px, 92vw); background:#fff; border-radius:16px; padding:16px; border:1px solid #e5e7eb;">
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;">
+      <div style="font-weight:800" id="payTitle">کارت‌به‌کارت</div>
+      <button type="button" onclick="closePayModal()" style="border:1px solid #e5e7eb; background:#fff; border-radius:10px; padding:6px 10px; cursor:pointer;">✕</button>
+    </div>
+
+    <div style="font-size:14px; color:#374151; line-height:1.9; margin-bottom:10px;">
+      برای <strong id="payPkg">—</strong> مبلغ را کارت‌به‌کارت کنید:
+    </div>
+
+    <div style="border:1px solid #e5e7eb; border-radius:12px; padding:12px; background:#f9fafb; display:flex; justify-content:space-between; align-items:center; gap:10px;">
+      <span dir="ltr" style="font-weight:800" id="payCard">0000-0000-0000-0000</span>
+      <button type="button" onclick="copyPayCard()" style="border:1px solid #22c55e; background:#22c55e; color:#fff; border-radius:999px; padding:8px 14px; cursor:pointer;">کپی</button>
+    </div>
+
+    <div style="margin-top:12px; font-size:12px; color:#6b7280;">
+      بعد از واریز، رسید را در واتساپ ارسال کنید.
+    </div>
+
+    <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+      <a id="payWhatsApp" class="btn btn-primary" target="_blank" rel="noopener" href="#">ارسال رسید در واتساپ</a>
+      <button type="button" class="btn btn-outline" onclick="closePayModal()">بستن</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ===== Modal functions =====
+  function openPayModal({ card, packageName }) {
+    const modal = document.getElementById("payModal");
+    const cardEl = document.getElementById("payCard");
+    const pkgEl  = document.getElementById("payPkg");
+    const waEl   = document.getElementById("payWhatsApp");
+
+    if(!modal || !cardEl || !pkgEl || !waEl){
+      console.error("pay modal elements not found");
+      return;
+    }
+
+    cardEl.textContent = card || "";
+    pkgEl.textContent = packageName || "";
+
+    const msg = `سلام، برای ${packageName} کارت‌به‌کارت انجام دادم. رسید پرداخت:`;
+    waEl.href = "https://wa.me/989044983371?text=" + encodeURIComponent(msg);
+
+    modal.style.display = "flex";
+  }
+
+  function closePayModal(){
+    const modal = document.getElementById("payModal");
+    if(modal) modal.style.display = "none";
+  }
+
+  function copyPayCard(){
+    const card = document.getElementById("payCard")?.textContent?.trim();
+    if(!card) return;
+    navigator.clipboard.writeText(card).then(()=>{
+      alert("شماره کارت کپی شد ✅");
+    });
+  }
+
+  // click outside -> close
+  document.addEventListener("click", (e)=>{
+    const modal = document.getElementById("payModal");
+    if(!modal || modal.style.display !== "flex") return;
+    if(e.target === modal) closePayModal();
+  });
+</script>
 
 </body>
 </html>
