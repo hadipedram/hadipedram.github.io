@@ -2989,11 +2989,18 @@ document.querySelectorAll(".card, .box, section, .testimonial-card")
   }
 
   // کلیک روی هر چیزی که data-close دارد => بستن
+ document.addEventListener("DOMContentLoaded", () => {
+  const payModal = document.getElementById("payModal");
+
+  if (!payModal) return; // ← مهم‌ترین خط
+
+  // کلیک روی هر چیزی که data-close دارد => بستن
   payModal.addEventListener("click", (e) => {
-    if(e.target && e.target.getAttribute("data-close") === "1"){
+    if (e.target && e.target.getAttribute("data-close") === "1") {
       closePayModal();
     }
   });
+});
 
   // ESC => بستن
   document.addEventListener("keydown", (e) => {
