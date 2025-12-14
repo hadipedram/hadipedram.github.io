@@ -1539,21 +1539,7 @@ header {
 }
 
 /* تنظیمات Flexbox برای قرارگیری کارت‌ها */
-.two-col {
-  display: flex;
-  gap: 18px; /* فاصله بین کارت‌ها */
-  flex-wrap: wrap; /* اجازه می‌دهیم کارت‌ها به خط بعدی بروند */
-}
 
-.card {
-  flex: 1 1 calc(50% - 18px); /* کارت‌ها دو در یک ردیف قرار می‌گیرند */
-  background: #fff;
-  border-radius: 14px;
-  padding: 18px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 6px 16px rgba(15, 23, 42, .05);
-  margin-bottom: 20px;
-}
 
 /* تنظیمات برای صفحه‌های موبایل */
 @media (max-width: 860px) {
@@ -1561,10 +1547,7 @@ header {
     flex-direction: column; /* کارت‌ها در یک ستون قرار می‌گیرند */
   }
   
-  .card {
-    flex: 1 1 100%; /* کارت‌ها تمام عرض صفحه را می‌گیرند */
-    margin-bottom: 18px; /* فاصله کارت‌ها */
-  }
+
 }
 .card h3 {
   font-size: 16px;
@@ -1582,17 +1565,91 @@ header {
   margin-bottom: 20px; /* فاصله پایین هر کارت */
 }
 /* تنظیمات گرید برای بخش‌ها */
-.two-col {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-}
-
+ 
 /* برای موبایل */
 @media (max-width: 860px) {
   .two-col {
     grid-template-columns: 1fr; /* هر کارت یک ستون در موبایل */
   }
+}
+/* === Equal height cards/boxes (FINAL) === */
+
+/* کادرهای 2 ستونه مثل رزومه/بیانیه */
+.two-col{
+  align-items: stretch;            /* آیتم‌ها هم‌قد بشن */
+}
+
+.two-col > .box{
+  height: 100%;                    /* هر box تمام قد سطر */
+  display: flex;
+  flex-direction: column;
+}
+
+/* کارت‌های داخل .cards هم‌قد بشن */
+.cards{
+  align-items: stretch;            /* هم‌قد در هر ردیف */
+}
+
+.cards > .card,
+.cards > article.card,
+.cards > .testimonial-card{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* اگر داخل کارت دکمه/برچسب داری، ته کارت بچسبه */
+.card .article-actions,
+.card .tags,
+.card small{
+  margin-top: auto;
+}
+/* ===== FINAL: EQUAL HEIGHT + CLEAN GRID ===== */
+
+/* دو ستونه‌ها (رزومه/بیانیه/ثبت‌نظر) */
+.two-col{
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+  align-items: stretch !important;
+  grid-auto-rows: 1fr !important;   /* ✅ کلید اصلی هم‌قد شدن */
+}
+
+.two-col > .box{
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 0 !important;
+}
+
+/* کارت‌های لیست‌شونده */
+.cards{
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  gap: 18px !important;
+  align-items: stretch !important;
+  grid-auto-rows: 1fr !important;   /* ✅ کلید اصلی هم‌قد شدن */
+}
+
+.cards > .card,
+.cards > article.card,
+.cards > .testimonial-card{
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 0 !important;
+}
+
+/* محتوا/دکمه‌ها ته کارت */
+.card small,
+.card .tags,
+.card .article-actions{
+  margin-top: auto !important;
+}
+
+/* موبایل */
+@media (max-width: 860px){
+  .two-col{ grid-template-columns: 1fr !important; }
 }
 
   </style>
