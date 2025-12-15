@@ -3713,79 +3713,7 @@ document.querySelectorAll(".card, .box, section, .testimonial-card")
 </script>
 
 </script>
-<script>
-  // ===== Card-to-Card Modal Logic =====
-  const payModal = document.getElementById("payModal");
-  const copyCardBtn = document.getElementById("copyCardBtn");
-  const cardNumberEl = document.getElementById("cardNumber");
-  const payStatus = document.getElementById("payStatus");
 
-  function openPayModal(opts = {}){
-    // opts.card, opts.name, opts.packageName (اختیاری)
-    if(opts.card) cardNumberEl.textContent = opts.card;
-
-    // متن آماده واتساپ (اختیاری)
-    const pkg = opts.packageName ? `«${opts.packageName}»` : "پکیج";
-    const wa = document.getElementById("sendReceiptBtn");
-    wa.href = "https://wa.me/989044983371?text=" + encodeURIComponent(
-      `سلام، پرداخت کارت‌به‌کارت برای ${pkg} انجام شد. رسید را ارسال می‌کنم.`
-    );
-
-    payStatus.textContent = "";
-    payModal.classList.add("show"); 
-    document.body.style.overflow = "hidden"; // جلوگیری از اسکرول پشت
-  }
-
-  function closePayModal(){
-    payModal.classList.remove("show");
-    payModal.setAttribute("aria-hidden","true");
-    document.body.style.overflow = ""; // بازگشت اسکرول
-  }
-
-  // کلیک روی هر چیزی که data-close دارد => بستن
- document.addEventListener("DOMContentLoaded", () => {
-  const payModal = document.getElementById("payModal");
-
-  if (!payModal) return; // ← مهم‌ترین خط
-
-  // کلیک روی هر چیزی که data-close دارد => بستن
-  payModal.addEventListener("click", (e) => {
-    if (e.target && e.target.getAttribute("data-close") === "1") {
-      closePayModal();
-    }
-  });
-});
-
-  // ESC => بستن
-  document.addEventListener("keydown", (e) => {
-    if(e.key === "Escape" && payModal.classList.contains("show")){
-      closePayModal();
-    }
-  });
-
-  // کپی شماره کارت
-  if(copyCardBtn){
-    copyCardBtn.addEventListener("click", async () => {
-      const text = (cardNumberEl.textContent || "").trim();
-      try{
-        await navigator.clipboard.writeText(text);
-        payStatus.textContent = "✅ شماره کارت کپی شد.";
-      }catch(err){
-        // fallback برای مرورگرهای قدیمی‌تر
-        const ta = document.createElement("textarea");
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand("copy");
-        ta.remove();
-        payStatus.textContent = "✅ شماره کارت کپی شد.";
-      }
-    });
-  }
-
-  // این تابع را از دکمه‌های کارت‌ها صدا بزن
-  window.openPayModal = openPayModal;
-</script>
 
 <!-- Card-to-Card Modal -->
 <div class="pay-modal" id="payModal">
@@ -4103,6 +4031,8 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
     alertEl.style.display = "block";
   }
 })();
+const el = document.getElementById("liveDateTime");
+if (!el) return;
 
 (function(){
 
@@ -4166,6 +4096,8 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
 document.addEventListener("DOMContentLoaded", function () {
   const el = document.getElementById("floatingDateTime");
   if (!el) return; // اگر نبود، هیچ کاری نکن (ارور هم نمی‌ده)
+const el = document.getElementById("liveDateTime");
+if (!el) return;
 
   function updateTime() {
     const now = new Date();
@@ -4194,4 +4126,4 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 </body>
-</html>
+</html> 
