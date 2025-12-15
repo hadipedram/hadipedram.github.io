@@ -2411,6 +2411,103 @@ section + section{
     left:16px;
   }
 }
+/* ===== HERO CLEAN (after removing quick summary) ===== */
+.hero-wrap .hero-grid{
+  grid-template-columns: 1fr !important;
+  max-width: 980px;
+  margin: 0 auto;
+  gap: 18px !important;
+  align-items: center;
+}
+
+.hero h1{
+  font-size: 34px !important;
+  line-height: 1.35 !important;
+}
+
+.hero p{
+  max-width: 720px;
+  color: rgba(229,231,235,.92);
+}
+
+.hero-actions{
+  margin-top: 16px;
+}
+
+.hero .kpis{
+  margin-top: 18px;
+}
+
+/* موبایل */
+@media (max-width: 600px){
+  .hero h1{ font-size: 26px !important; }
+}
+/* ===== HERO CTA (make primary stand out) ===== */
+.hero .hero-actions{
+  gap: 12px !important;
+  align-items: center;
+}
+
+.hero .btn.btn-primary{
+  padding: 12px 22px !important;
+  font-size: 15px !important;
+  font-weight: 900 !important;
+  border-radius: 16px !important;
+
+  background: linear-gradient(90deg,#22c55e,#16a34a) !important;
+  box-shadow: 0 18px 40px rgba(34,197,94,.28) !important;
+
+  transform: translateY(0);
+}
+
+.hero .btn.btn-primary:hover{
+  filter: brightness(1.06);
+  transform: translateY(-2px);
+  box-shadow: 0 22px 52px rgba(34,197,94,.34) !important;
+}
+
+/* دکمه دوم (رزومه) جمع‌وجورتر و کمتر رقابتی */
+.hero .btn.btn-outline{
+  padding: 11px 18px !important;
+  border-radius: 16px !important;
+  opacity: .92;
+}
+.hero .btn.btn-outline:hover{ opacity: 1; }
+/* ===== HERO KPIs (equal height + cleaner) ===== */
+.hero .kpis{
+  margin-top: 18px !important;
+  gap: 14px !important;
+  align-items: stretch !important;
+}
+
+.hero .kpis .kpi{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 16px 16px !important;
+  border-radius: 18px !important;
+}
+
+.hero .kpis .kpi .n{
+  font-size: 15px !important;
+  line-height: 1.6;
+}
+
+.hero .kpis .kpi .t{
+  margin-top: 6px;
+  font-size: 13px !important;
+  opacity: .92;
+}
+
+/* موبایل: ۳تا نشه خیلی ریز، ۲تایی/تکی */
+@media (max-width: 860px){
+  .hero .kpis{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+}
+@media (max-width: 420px){
+  .hero .kpis{ grid-template-columns: 1fr !important; }
+}
 
   </style>
 </head>
@@ -2471,7 +2568,7 @@ section + section{
         مشاوره تحصیلی و تربیتی | متوسطه اول و دوم
       </span>
 <h1>مشاوره تحصیلی رسمی و پیگیری‌محور</h1>
-<p>ویژه متوسطه اول و دوم — اهر | برنامه‌ریزی، مطالعه، انگیزه و تربیتی</p>
+<p>ویژه متوسطه اول و دوم  | برنامه‌ریزی، مطالعه، انگیزه و تربیتی</p>
 <div class="hero-badges">
   <span class="badge-item"><span class="icon">🎓</span> مشاور مدرسه</span>
   <span class="badge-item"><span class="icon">📘</span> مشاوره تحصیلی</span>
@@ -2501,25 +2598,7 @@ section + section{
       </div>
     </div>
 
-    <!-- کارت کناری -->
-    <aside class="hero-card">
-      <h3>خلاصه سریع</h3>
-      <div class="mini-list">
-        <div class="mini-item">
-          <div class="k">مقاطع</div>
-          <div class="v">متوسطه اول و دوم</div>
-        </div>
-        <div class="mini-item">
-          <div class="k">شهر</div>
-          <div class="v">اهر – آذربایجان شرقی</div>
-        </div>
-        <div class="mini-item">
-          <div class="k">ارتباط</div>
-          <div class="v">فرم تماس رسمی / واتساپ</div>
-        </div>
-      </div>
-    </aside>
-
+ 
      </div>
   </div>
 </section>
@@ -2577,8 +2656,7 @@ section + section{
 
         <div class="tags" style="margin-top:12px">
           <span class="tag">متوسطه اول</span>
-          <span class="tag">متوسطه دوم</span>
-          <span class="tag">شهر اهر</span>
+          <span class="tag">متوسطه دوم</span> 
           <span class="tag">۶ سال سابقه</span>
         </div>
       </div>
@@ -2856,7 +2934,7 @@ section + section{
     بررسی وضعیت تحصیلی دانش‌آموزان، شناسایی نقاط قوت و ضعف،
     برنامه‌ریزی درسی، پیگیری پیشرفت و اصلاح مسیر.
   </p>
-  <small>ویژه دانش‌آموزان شهر اهر</small>
+  <small>ویژه دانش‌آموزان شهر </small>
 </div>
 
        <div class="card">
