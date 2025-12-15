@@ -60,6 +60,33 @@
     padding:5px 12px;
   }
 }
+.chip {
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+.guidance-section {
+  position: relative;
+  z-index: 5;
+}
+
+.guidance-content {
+  display: none;
+}
+
+.guidance-content.active {
+  display: block;
+}
+.modal {
+  pointer-events: auto;
+}
+
+.modal-overlay {
+  pointer-events: none; /* فقط اگه لازمه */
+}
+body {
+  overflow-x: hidden;
+}
 
   </style>
 </head>
