@@ -3959,60 +3959,21 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
 
   }
  
-</script>
-<script>
-(function(){
+ document.addEventListener("DOMContentLoaded", () => {
   const el = document.getElementById("floatingDateTime");
+  if (!el) return;
 
   function updateTime(){
     const now = new Date();
 
     const date = new Intl.DateTimeFormat("fa-IR",{
       timeZone:"Asia/Tehran",
-      weekday:"long",
-      year:"numeric",
-      month:"long",
-      day:"numeric"
+      weekday:"long", year:"numeric", month:"long", day:"numeric"
     }).format(now);
 
     const time = new Intl.DateTimeFormat("fa-IR",{
       timeZone:"Asia/Tehran",
-      hour:"2-digit",
-      minute:"2-digit",
-      second:"2-digit"
-    }).format(now);
-
-    el.textContent = `🕒 ${date} | ${time}`;
-  }
-
-  updateTime();
-  setInterval(updateTime,1000);
-})();
-</script> 
- 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const el = document.getElementById("floatingDateTime");
-  if (!el) return; // اگر نبود، هیچ کاری نکن (ارور هم نمی‌ده)
-
-if (!el) return;
-
-  function updateTime() {
-    const now = new Date();
-
-    const date = new Intl.DateTimeFormat("fa-IR", {
-      timeZone: "Asia/Tehran",
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }).format(now);
-
-    const time = new Intl.DateTimeFormat("fa-IR", {
-      timeZone: "Asia/Tehran",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
+      hour:"2-digit", minute:"2-digit", second:"2-digit"
     }).format(now);
 
     el.textContent = `🕒 ${date} | ${time}`;
@@ -4021,6 +3982,7 @@ if (!el) return;
   updateTime();
   setInterval(updateTime, 1000);
 });
+
 </script> 
 
 </body>
