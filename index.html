@@ -2741,6 +2741,7 @@ section + section{
 .plan-card .notice-red{
   display: none !important;
 }
+html{ scrollbar-gutter: stable; }
 
   </style>
 </head>
@@ -2995,7 +2996,7 @@ section + section{
              href="https://wa.me/989044983371?text=سلام،%20برای%20«پکیج%20پایه»%20کمک‌آموزشی%20درخواست%20ثبت‌نام%20دارم.%0A%0Aپایه%20تحصیلی:%20...%0Aنام%20دانش‌آموز:%20...">
             ثبت‌نام در واتساپ
           </a>
-<button class="btn btn-outline"
+<button type="button" class="btn btn-outline"
   onclick="openPayModal({
     card:'6037-7990-1234-5678',
     packageName:'پکیج پایه'
@@ -3043,7 +3044,7 @@ section + section{
              href="https://wa.me/989044983371?text=سلام،%20برای%20«پکیج%20استاندارد»%20کمک‌آموزشی%20درخواست%20ثبت‌نام%20دارم.%0A%0Aپایه%20تحصیلی:%20...%0Aنام%20دانش‌آموز:%20...%0Aمشکل%20اصلی:%20برنامه‌ریزی%20/%20انگیزه%20/%20تمرکز">
             ثبت‌نام در واتساپ
           </a>
-<button class="btn btn-outline"
+<button type="button" class="btn btn-outline"
   onclick="openPayModal({
     card:'6037-7990-1234-5678',
     packageName:'پکیج استاندارد'
@@ -3091,7 +3092,7 @@ section + section{
              href="https://wa.me/989044983371?text=سلام،%20برای%20«پکیج%20ویژه%20(VIP)»%20درخواست%20ثبت‌نام%20دارم.%0A%0Aپایه%20تحصیلی:%20...%0Aنام%20دانش‌آموز:%20...%0Aهدف:%20(مثلاً%20افزایش%20معدل%20/%20کنکور%20/%20امتحانات)">
             ثبت‌نام در واتساپ
           </a>
-<button class="btn btn-outline"
+<button type="button" class="btn btn-outline"
   onclick="openPayModal({
     card:'6037-7990-1234-5678',
     packageName:'پکیج VIP'
@@ -3711,120 +3712,12 @@ document.querySelectorAll(".card, .box, section, .testimonial-card")
 </script>
 
 </script>
+ 
+ 
 
-
-<!-- Card-to-Card Modal -->
-<div class="pay-modal" id="payModal">
-  <div class="pay-modal__backdrop" data-close="1"></div>
-
-  <div class="pay-modal__panel" role="dialog" aria-modal="true" aria-labelledby="payTitle">
-    <div class="pay-modal__header">
-      <h3 id="payTitle">پرداخت کارت‌به‌کارت</h3>
-      <button class="pay-modal__close" type="button" aria-label="بستن" data-close="1">✕</button>
-    </div>
-
-    <div class="pay-modal__body">
-      <p class="pay-hint">شماره کارت را کپی کنید و بعد از پرداخت، رسید را در واتساپ ارسال کنید.</p>
-
-      <div class="pay-row">
-        <div class="pay-label">شماره کارت</div>
-        <div class="pay-value" id="cardNumber" dir="ltr">6037-7990-1234-5678</div>
-        <button class="pay-copy" type="button" id="copyCardBtn">کپی</button>
-      </div>
-
-      <div class="pay-row">
-        <div class="pay-label">به نام</div>
-        <div class="pay-value">هادی پدرام</div>
-      </div>
-
-      <div class="pay-row">
-        <div class="pay-label">توضیح پرداخت</div>
-        <div class="pay-value">پکیج کمک‌آموزشی / نام دانش‌آموز</div>
-      </div>
-
-      <div class="pay-status" id="payStatus" aria-live="polite"></div>
-    </div>
-
-    <div class="pay-modal__footer">
-      <a
-        class="btn btn-primary"
-        id="sendReceiptBtn"
-        target="_blank"
-        rel="noopener"
-        href="https://wa.me/989044983371?text=سلام، پرداخت کارت‌به‌کارت انجام شد. رسید را ارسال می‌کنم.">
-        ارسال رسید در واتساپ
-      </a>
-
-      <button class="btn btn-outline" type="button" data-close="1">بستن</button>
-    </div>
-  </div>
-</div>
-<!-- Pay Modal -->
-<div id="payModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:99999; align-items:center; justify-content:center;">
-  <div style="width:min(520px, 92vw); background:#fff; border-radius:16px; padding:16px; border:1px solid #e5e7eb;">
-    <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;">
-      <div style="font-weight:800" id="payTitle">کارت‌به‌کارت</div>
-      <button type="button" onclick="closePayModal()" style="border:1px solid #e5e7eb; background:#fff; border-radius:10px; padding:6px 10px; cursor:pointer;">✕</button>
-    </div>
-
-    <div style="font-size:14px; color:#374151; line-height:1.9; margin-bottom:10px;">
-      برای <strong id="payPkg">—</strong> مبلغ را کارت‌به‌کارت کنید:
-    </div>
-
-    <div style="border:1px solid #e5e7eb; border-radius:12px; padding:12px; background:#f9fafb; display:flex; justify-content:space-between; align-items:center; gap:10px;">
-      <span dir="ltr" style="font-weight:800" id="payCard">0000-0000-0000-0000</span>
-      <button type="button" onclick="copyPayCard()" style="border:1px solid #22c55e; background:#22c55e; color:#fff; border-radius:999px; padding:8px 14px; cursor:pointer;">کپی</button>
-    </div>
-
-    <div style="margin-top:12px; font-size:12px; color:#6b7280;">
-      بعد از واریز، رسید را در واتساپ ارسال کنید.
-    </div>
-
-    <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
-      <a id="payWhatsApp" class="btn btn-primary" target="_blank" rel="noopener" href="#">ارسال رسید در واتساپ</a>
-      <button type="button" class="btn btn-outline" onclick="closePayModal()">بستن</button>
-    </div>
-  </div>
-</div>
-
-</button>
 
 <script>
-  // ===== Modal functions =====
-  function openPayModal({ card, packageName }) {
-    
-    const modal = document.getElementById("payModal");
-    const cardEl = document.getElementById("payCard");
-    const pkgEl  = document.getElementById("payPkg");
-    const waEl   = document.getElementById("payWhatsApp");
-
-    if(!modal || !cardEl || !pkgEl || !waEl){
-      console.error("pay modal elements not found");
-      return;
-    }
-
-    cardEl.textContent = card || "";
-    pkgEl.textContent = packageName || "";
-
-    const msg = `سلام، برای ${packageName} کارت‌به‌کارت انجام دادم. رسید پرداخت:`;
-    waEl.href = "https://wa.me/989044983371?text=" + encodeURIComponent(msg);
-
-    modal.style.display = "flex";
-  }
-
-  function closePayModal(){
-    const modal = document.getElementById("payModal");
-    if(modal) modal.style.display = "none";
-  }
-
-  function copyPayCard(){
-    const card = document.getElementById("payCard")?.textContent?.trim();
-    if(!card) return;
-    navigator.clipboard.writeText(card).then(()=>{
-      alert("شماره کارت کپی شد ✅");
-    });
-  }
-
+ 
   // click outside -> close
   document.addEventListener("click", (e)=>{
     const modal = document.getElementById("payModal");
@@ -3886,11 +3779,22 @@ document.querySelectorAll(".card, .box, section, .testimonial-card")
       clearTimeout(showToast._t);
       showToast._t = setTimeout(()=>toast.classList.remove("show"), 1600);
     }
+function lockScroll(lock){
+  const sbw = window.innerWidth - document.documentElement.clientWidth; // عرض اسکرول‌بار
 
-    function lockScroll(lock){
-      document.documentElement.style.overflow = lock ? "hidden" : "";
-      document.body.style.overflow = lock ? "hidden" : "";
-    }
+  if(lock){
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+
+    // جبران حذف اسکرول‌بار (جلوگیری از پرش)
+    document.body.style.paddingRight = sbw ? (sbw + "px") : "";
+  }else{
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = "";
+  }
+}
+
 
     function buildWaText(packageName, card){
       const txt =
@@ -4029,7 +3933,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
     alertEl.style.display = "block";
   }
 })();
-const el = document.getElementById("liveDateTime");
+
  
   function updateTime(){
     const now = new Date();
@@ -4084,8 +3988,8 @@ const el = document.getElementById("liveDateTime");
   updateTime();
   setInterval(updateTime,1000);
 })();
-</script>
-<div class="floating-datetime" id="floatingDateTime">...</div>
+</script> 
+ 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const el = document.getElementById("floatingDateTime");
@@ -4117,10 +4021,7 @@ if (!el) return;
   updateTime();
   setInterval(updateTime, 1000);
 });
-</script>
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+</script> 
 
 </body>
 </html> 
