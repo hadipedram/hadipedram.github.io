@@ -1763,18 +1763,7 @@ header {
 .price-new{ color:#16a34a; font-weight:900; font-size:18px; }
 
 .pack-note{ font-size:12px; color:#64748b; margin-top:8px; }
-
-.badge-limit{
-  position:absolute;
-  top:14px;
-  left:14px;
-  background:#dc2626;
-  color:#fff;
-  font-size:12px;
-  padding:4px 10px;
-  border-radius:999px;
-  font-weight:800;
-}
+ 
 
 .badge-discount{
   position:absolute;
@@ -1789,16 +1778,7 @@ header {
   opacity:.95;
 }
 
-.countdown{
-  margin-top:10px;
-  font-size:13px;
-  color:#991b1b;
-  font-weight:800;
-  background:#fef2f2;
-  border:1px solid #fecaca;
-  padding:8px 10px;
-  border-radius:12px;
-}
+ 
 /* ===== FIX: badges not overlap titles + show online payment on white cards ===== */
 
 /* کارت‌ها باید مرجع absolute باشند */
@@ -2573,6 +2553,194 @@ section + section{
     grid-template-columns: 1fr !important;
   }
 }
+/* ===== HERO: HEAVY & FORMAL ===== */
+
+/* زمینه: تیره‌تر و کم‌فانتزی‌تر */
+.hero{
+  background: linear-gradient(135deg, #071018 0%, #061a14 55%, #070b14 100%) !important;
+}
+
+/* فاصله‌ها منظم و رسمی */
+.hero-wrap{
+  padding-top: 56px !important;
+  padding-bottom: 40px !important;
+}
+
+/* تایپوگرافی جدی‌تر */
+.hero h1{
+  font-size: 36px !important;
+  line-height: 1.28 !important;
+  letter-spacing: -0.4px;
+  color: rgba(255,255,255,.95) !important;
+}
+
+.hero p{
+  font-size: 14px !important;
+  opacity: .88 !important;
+  max-width: 760px;
+}
+
+/* Badge بالای عنوان: ساده و رسمی */
+.hero .badge{
+  background: rgba(255,255,255,.04) !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  color: rgba(255,255,255,.88) !important;
+}
+
+/* چیپ‌ها: از حالت فانتزی به “Tag رسمی” */
+.hero .badge-item{
+  background: rgba(255,255,255,.06) !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  color: rgba(255,255,255,.86) !important;
+  box-shadow: none !important;
+  font-weight: 700 !important;
+  padding: 7px 12px !important;
+}
+
+/* CTA: رسمی و محکم (کمتر براق) */
+.hero .btn.btn-primary{
+  background: #16a34a !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  box-shadow: 0 14px 28px rgba(0,0,0,.28) !important;
+  border-radius: 14px !important;
+  font-weight: 900 !important;
+}
+
+.hero .btn.btn-primary:hover{
+  filter: brightness(1.03);
+  transform: translateY(-1px);
+}
+
+/* دکمه دوم: کاملاً رسمی */
+.hero .btn.btn-outline{
+  background: transparent !important;
+  border: 1px solid rgba(255,255,255,.22) !important;
+  color: rgba(255,255,255,.90) !important;
+  border-radius: 14px !important;
+}
+
+/* KPIها: کارت رسمی، کم‌جلوه، هم‌قد */
+.hero .kpis{
+  margin-top: 18px !important;
+  gap: 14px !important;
+  align-items: stretch !important;
+}
+
+.hero .kpi{
+  background: rgba(255,255,255,.05) !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  box-shadow: 0 16px 34px rgba(0,0,0,.22) !important;
+  border-radius: 16px !important;
+  padding: 16px 16px !important;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  height: 100%;
+}
+
+.hero .kpi .n{
+  font-size: 14px !important;
+  font-weight: 900 !important;
+  color: rgba(255,255,255,.92) !important;
+}
+
+.hero .kpi .t{
+  font-size: 13px !important;
+  color: rgba(255,255,255,.78) !important;
+  margin-top: 6px;
+}
+
+/* موبایل */
+@media (max-width: 860px){
+  .hero h1{ font-size: 28px !important; }
+}
+/* ===== HERO: PURE WHITE TITLE + GREEN ONLY CTA ===== */
+
+/* عنوان: سفید خالص، بدون ته‌مایه سبز */
+.hero h1{
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,.35); /* حس سنگینی */
+}
+
+/* زیرعنوان: خنثی و رسمی */
+.hero p{
+  color: rgba(255,255,255,.82) !important;
+}
+
+/* Badge بالای عنوان: خنثی (بدون سبز) */
+.hero .badge{
+  color: rgba(255,255,255,.9) !important;
+  background: rgba(255,255,255,.04) !important;
+  border-color: rgba(255,255,255,.18) !important;
+}
+
+/* چیپ‌ها: کاملاً خنثی */
+.hero .badge-item{
+  color: rgba(255,255,255,.88) !important;
+  background: rgba(255,255,255,.05) !important;
+  border-color: rgba(255,255,255,.18) !important;
+}
+
+/* KPI متن‌ها خنثی */
+.hero .kpi .n,
+.hero .kpi .t{
+  color: rgba(255,255,255,.88) !important;
+}
+
+/* ✅ سبز فقط برای CTA */
+.hero .btn.btn-primary{
+  background: #16a34a !important;
+  color: #ffffff !important;
+  box-shadow: 0 16px 36px rgba(22,163,74,.35) !important;
+}
+
+/* دکمه دوم کاملاً خنثی */
+.hero .btn.btn-outline{
+  color: rgba(255,255,255,.9) !important;
+  border-color: rgba(255,255,255,.28) !important;
+}
+/* ===== Discount Badge (Clean & Formal) ===== */
+.discount-badge{
+  position:absolute;
+  top:14px;
+  left:14px;
+
+  background:#111827;      /* مشکی رسمی */
+  color:#ffffff;
+  font-size:12px;
+  font-weight:800;
+  padding:6px 10px;
+  border-radius:999px;
+}
+
+/* کارت باید position داشته باشه */
+.plan-card{
+  position:relative;
+}
+/* ===== Special Price (Formal) ===== */
+.special-price-note{
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #374151;        /* خاکستری رسمی */
+  text-align: center;
+}
+/* Hide discount expired text */
+.discount-expired,
+.expired-note,
+.plan-card .expired{
+  display: none !important;
+}
+/* Remove red empty discount bars */
+.discount-expired,
+.expired-note,
+.alert-danger,
+.plan-card .alert,
+.plan-card .warning,
+.plan-card .notice-red{
+  display: none !important;
+}
 
   </style>
 </head>
@@ -2800,7 +2968,7 @@ section + section{
       <!-- Package 1 -->
       <div class="card">
         <span class="badge-limit">ظرفیت محدود</span>
-        <span class="badge-discount">٪20 تخفیف</span>
+
 
         <h3>پکیج پایه</h3>
         <p>مناسب شروع مسیر و ایجاد نظم مطالعه (متوسطه اول/دوم).</p>
@@ -2814,6 +2982,10 @@ section + section{
         <div class="price-wrap">
           <div class="price-old">۱٬۲۰۰٬۰۰۰ تومان</div>
           <div class="price-new">۹۶۰٬۰۰۰ تومان</div>
+          <div class="special-price-note">
+  قیمت با تخفیف ویژه
+</div>
+
         </div>
 
         <div class="countdown" data-deadline="2025-03-25T23:59:59"></div>
@@ -2844,7 +3016,7 @@ section + section{
       <!-- Package 2 -->
       <div class="card">
         <span class="badge-limit">ظرفیت محدود</span>
-        <span class="badge-discount">٪25 تخفیف</span>
+
 
         <h3>پکیج استاندارد</h3>
         <p>برای رشد پایدار و پیگیری منظم (مناسب اکثر دانش‌آموزان).</p>
@@ -2858,6 +3030,10 @@ section + section{
         <div class="price-wrap">
           <div class="price-old">۲٬۰۰۰٬۰۰۰ تومان</div>
           <div class="price-new">۱٬۵۰۰٬۰۰۰ تومان</div>
+          <div class="special-price-note">
+  قیمت با تخفیف ویژه
+</div>
+
         </div>
 
         <div class="countdown" data-deadline="2025-03-28T23:59:59"></div>
@@ -2888,7 +3064,7 @@ section + section{
       <!-- Package 3 -->
       <div class="card">
         <span class="badge-limit">ظرفیت محدود</span>
-        <span class="badge-discount">٪30 تخفیف</span>
+
 
         <h3>پکیج ویژه (VIP)</h3>
         <p>پیگیری جدی‌تر و جلسات بیشتر برای نتیجه سریع‌تر (متوسطه دوم).</p>
@@ -2902,6 +3078,10 @@ section + section{
         <div class="price-wrap">
           <div class="price-old">۳٬۲۰۰٬۰۰۰ تومان</div>
           <div class="price-new">۲٬۲۴۰٬۰۰۰ تومان</div>
+          <div class="special-price-note">
+  قیمت با تخفیف ویژه
+</div>
+
         </div>
 
         <div class="countdown" data-deadline="2025-04-02T23:59:59"></div>
@@ -3531,34 +3711,7 @@ document.querySelectorAll(".card, .box, section, .testimonial-card")
     observer.observe(el);
   });
 </script>
-<script>
-(function startCountdown(){
-  const pads = (n)=> (n<10 ? "0"+n : ""+n);
 
-  document.querySelectorAll(".countdown").forEach(el=>{
-    const end = new Date(el.dataset.deadline).getTime();
-
-    const tick = ()=>{
-      const now = Date.now();
-      const diff = end - now;
-
-      if(diff <= 0){
-        el.textContent = "مهلت تخفیف به پایان رسید";
-        return;
-      }
-
-      const d = Math.floor(diff / (1000*60*60*24));
-      const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-      const m = Math.floor((diff%(1000*60*60))/(1000*60));
-      const s = Math.floor((diff%(1000*60))/1000);
-
-      el.textContent = `⏳ ${d} روز ${pads(h)}:${pads(m)}:${pads(s)} تا پایان تخفیف`;
-    };
-
-    tick();
-    setInterval(tick, 1000);
-  });
-})();
 </script>
 <script>
   // ===== Card-to-Card Modal Logic =====
@@ -4010,6 +4163,37 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
   updateTime();
   setInterval(updateTime,1000);
 })();
+</script>
+<div class="floating-datetime" id="floatingDateTime">...</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const el = document.getElementById("floatingDateTime");
+  if (!el) return; // اگر نبود، هیچ کاری نکن (ارور هم نمی‌ده)
+
+  function updateTime() {
+    const now = new Date();
+
+    const date = new Intl.DateTimeFormat("fa-IR", {
+      timeZone: "Asia/Tehran",
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }).format(now);
+
+    const time = new Intl.DateTimeFormat("fa-IR", {
+      timeZone: "Asia/Tehran",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    }).format(now);
+
+    el.textContent = `🕒 ${date} | ${time}`;
+  }
+
+  updateTime();
+  setInterval(updateTime, 1000);
+});
 </script>
 
 </body>
