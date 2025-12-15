@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <title>راهنمایی تحصیلی متوسطه | هادی پدرام</title>
+  <meta name="description"
+      content="راهنمایی تحصیلی متوسطه اول و دوم؛ برنامه‌ریزی، مطالعه، انگیزه و نقش خانواده | هادی پدرام" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#f3f4f6;color:#111827;line-height:1.9}
@@ -26,6 +30,37 @@
     li{margin:6px 0}
     .tag{display:inline-block;background:#e5e7eb;padding:6px 10px;border-radius:999px;font-size:12px;margin:6px 6px 0 0}
     footer{padding:16px 0;text-align:center;font-size:12px;color:#6b7280;border-top:1px solid #e5e7eb;background:#f9fafb}
+    /* ===== Hero Tags (Formal) ===== */
+    
+.hero-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:18px;
+}
+
+.hero-tag{
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:700;
+  color:rgba(255,255,255,.9);
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  white-space:nowrap;
+}
+
+/* موبایل */
+@media (max-width:600px){
+  .hero-tags{
+    gap:8px;
+  }
+  .hero-tag{
+    font-size:12px;
+    padding:5px 12px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -39,6 +74,10 @@
         <a href="index.html#services">خدمات</a>
         <a href="index.html#resume">رزومه</a>
         <a href="index.html#contact">تماس</a>
+        <a href="index.html" style="font-size:12px;opacity:.8">
+  ← بازگشت به صفحه اصلی
+</a>
+
       </nav>
     </div>
   </header>
@@ -49,14 +88,30 @@
       <div class="sub">
         چارچوب‌های ساده، قابل اجرا و مناسب دانش‌آموزان و خانواده‌ها — ویژه شهر اهر و مقاطع متوسطه.
       </div>
-      <div style="margin-top:10px">
-        <span class="tag">برنامه‌ریزی</span>
-        <span class="tag">مطالعه و مرور</span>
-        <span class="tag">انگیزه</span>
-        <span class="tag">نقش خانواده</span>
-      </div>
+      <div class="hero-tags">
+  <span class="hero-tag">متوسطه اول</span>
+  <span class="hero-tag">متوسطه دوم</span>
+  <span class="hero-tag">برنامه‌ریزی درسی</span>
+  <span class="hero-tag">روش مطالعه</span>
+  <span class="hero-tag">انگیزه تحصیلی</span>
+  <span class="hero-tag">نقش خانواده</span>
+</div>
+
     </div>
   </div>
+<section>
+  <div class="container">
+    <div class="box">
+      <h2>این راهنما مناسب چه کسانی است؟</h2>
+      <ul>
+        <li>دانش‌آموزان متوسطه اول که نیاز به نظم و عادت مطالعه دارند</li>
+        <li>دانش‌آموزان متوسطه دوم که دچار پراکندگی برنامه هستند</li>
+        <li>خانواده‌هایی که می‌خواهند نقش حمایتی مؤثر داشته باشند</li>
+        <li>دانش‌آموزانی که انگیزه‌شان افت کرده یا زود خسته می‌شوند</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
   <section>
     <div class="container grid">
@@ -81,6 +136,17 @@
           <li>هدف‌گذاری ماهانه و گزارش پیشرفت</li>
         </ul>
       </div>
+<div class="box">
+  <h2>نمونه برنامه هفتگی (ساده و قابل اجرا)</h2>
+  <p>
+    مثال برای یک دانش‌آموز متوسطه اول:
+  </p>
+  <ul>
+    <li>شنبه تا چهارشنبه: روزانه ۷۵ دقیقه (۲ درس اصلی + مرور کوتاه)</li>
+    <li>پنجشنبه: مرور هفتگی + رفع اشکال</li>
+    <li>جمعه: آزاد / جبرانی (در صورت عقب‌ماندگی)</li>
+  </ul>
+</div>
 
       <div class="box">
         <h2>الگوی برنامه‌ریزی ۴ مرحله‌ای</h2>
@@ -103,6 +169,54 @@
       </div>
     </div>
   </section>
+<section>
+  <div class="container">
+    <div class="box" style="text-align:center">
+      <h2>نیاز به برنامه‌ریزی شخصی‌سازی‌شده دارید؟</h2>
+      <p>
+        اگر احساس می‌کنید این راهنما برای شما کافی نیست،
+        می‌توانید درخواست مشاوره تحصیلی رسمی ثبت کنید.
+      </p>
+      <a href="index.html#contact"
+         style="display:inline-block;margin-top:12px;
+                background:#16a34a;color:#fff;
+                padding:10px 18px;border-radius:10px;
+                font-weight:800;">
+        ثبت درخواست مشاوره
+      </a>
+    </div>
+  </div>
+</section>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "راهنمایی تحصیلی متوسطه اول و دوم",
+  "description": "راهنمایی تحصیلی متوسطه اول و دوم؛ برنامه‌ریزی، مطالعه، انگیزه و نقش خانواده | هادی پدرام",
+  "inLanguage": "fa-IR",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "وب‌سایت رسمی هادی پدرام",
+    "url": "https://YOUR-DOMAIN/"
+  },
+  "about": [
+    { "@type": "Thing", "name": "راهنمایی تحصیلی" },
+    { "@type": "Thing", "name": "برنامه‌ریزی درسی" },
+    { "@type": "Thing", "name": "مهارت‌های مطالعه" },
+    { "@type": "Thing", "name": "انگیزه تحصیلی" },
+    { "@type": "Thing", "name": "نقش خانواده" }
+  ],
+  "audience": {
+    "@type": "EducationalAudience",
+    "educationalRole": ["student", "parent"]
+  },
+  "author": {
+    "@type": "Person",
+    "name": "هادی پدرام",
+    "jobTitle": "دبیر رسمی آموزش و پرورش | مشاوره و راهنمایی"
+  }
+}
+</script>
 
   <footer>© 2025 - هادی پدرام | راهنمایی تحصیلی متوسطه</footer>
 </body>
