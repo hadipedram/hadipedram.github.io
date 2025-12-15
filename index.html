@@ -2382,6 +2382,35 @@ section + section{
 #resume .box{
   padding: 22px 22px;
 }
+/* ===== Floating Live Date & Time ===== */
+.floating-datetime{
+  position: fixed;
+  bottom: 20px;
+  left: 20px;              /* گوشه پایین-چپ (برای RTL حرفه‌ای‌تره) */
+  z-index: 9999;
+
+  font-size:12px;
+  font-weight:800;
+  color:#065f46;
+  background: linear-gradient(135deg,#dcfce7,#bbf7d0);
+  border:1px solid #86efac;
+  padding:8px 14px;
+  border-radius:999px;
+
+  box-shadow:0 12px 28px rgba(22,163,74,.25);
+  white-space:nowrap;
+  pointer-events:none;     /* مزاحم کلیک‌های صفحه نشه */
+}
+
+/* موبایل: کمی کوچیک‌تر */
+@media (max-width:600px){
+  .floating-datetime{
+    font-size:11px;
+    padding:6px 12px;
+    bottom:16px;
+    left:16px;
+  }
+}
 
   </style>
 </head>
@@ -2389,6 +2418,9 @@ section + section{
 
 <body>
 
+<div class="floating-datetime" id="floatingDateTime">
+  در حال بارگذاری…
+</div>
 
 
   <div class="whatsapp-wrapper">
@@ -3778,6 +3810,66 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
     statusEl.classList.add("closed");
     alertEl.style.display = "block";
   }
+})();
+
+(function(){
+  const el = document.getElementById("liveDateTime");
+
+  function updateTime(){
+    const now = new Date();
+
+    const optionsDate = {
+      timeZone: "Asia/Tehran",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      weekday: "long"
+    };
+
+    const optionsTime = {
+      timeZone: "Asia/Tehran",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit"
+    };
+
+    const date = new Intl.DateTimeFormat("fa-IR", optionsDate).format(now);
+    const time = new Intl.DateTimeFormat("fa-IR", optionsTime).format(now);
+
+    el.textContent = `🕒 ${date} | ${time}`;
+  }
+
+  updateTime();
+  setInterval(updateTime, 1000);
+})();
+</script>
+<script>
+(function(){
+  const el = document.getElementById("floatingDateTime");
+
+  function updateTime(){
+    const now = new Date();
+
+    const date = new Intl.DateTimeFormat("fa-IR",{
+      timeZone:"Asia/Tehran",
+      weekday:"long",
+      year:"numeric",
+      month:"long",
+      day:"numeric"
+    }).format(now);
+
+    const time = new Intl.DateTimeFormat("fa-IR",{
+      timeZone:"Asia/Tehran",
+      hour:"2-digit",
+      minute:"2-digit",
+      second:"2-digit"
+    }).format(now);
+
+    el.textContent = `🕒 ${date} | ${time}`;
+  }
+
+  updateTime();
+  setInterval(updateTime,1000);
 })();
 </script>
 
