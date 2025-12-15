@@ -4128,12 +4128,9 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
     const date = new Intl.DateTimeFormat("fa-IR", optionsDate).format(now);
     const time = new Intl.DateTimeFormat("fa-IR", optionsTime).format(now);
 
-    el.textContent = `🕒 ${date} | ${time}`;
-  }
 
-  updateTime();
-  setInterval(updateTime, 1000);
-})();
+  }
+ 
 </script>
 <script>
 (function(){
